@@ -37,13 +37,13 @@
       class="p-5 text-center bg-image"
       style="
         background-image: url('../../public/jarre.png');
-        height: 700px;
+        height: 600px;
         margin-top: px;
       ">
-      <div class="mask" style="background-color: rgba(0, 0, 0, 0.5);">
+      <div class="mask" style="background-color: rgba(85, 82, 82, 0.5);">
         <div class="d-flex justify-content-center align-items-center h-100">
           <div class="text-white">
-            <h1 class="mb-3">Donner, c’est recevoir.</h1>
+            <h1 class="mb-3">Faisons vivre les projets créatifs.</h1>
             <router-link to="/myproject">
             <MDBBtn  tag="a" size="lg" lg outline="light" href="#!" role="button" bg="green"
               >Proposer un projet</MDBBtn>

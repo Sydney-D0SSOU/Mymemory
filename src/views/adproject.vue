@@ -1,76 +1,93 @@
 <template>
   <navbar/>
   
- <div class ="r ">
-    Une dame a acheté une armoire chez Ikea et a décidé de la monter toute seule, sans attendre son mari.
-Elle regarde bien le plan et se met à l'ouvrage. Voilà, c'est fait. Mais en bas, dans la rue, un autobus passe.
-Le sol vibre, et l'armoire se met à trembler, trembler et patatras, la voilà par terre.
-La dame ne s'avoue pas vaincue. Elle reprend le montage, en suivant bien les étapes une après l'autre, elle ajoute même un point de colle ici et là... Voilà, c'est terminé.
-Mais l'autobus qui fait la navette est revenu, et de nouveau le sol vibre, l'armoire tremble, tremble et plaf, elle s'effondre.
-"Non d'une pipe, il y a comme un défaut", se dit la dame, et elle appelle le service après-vente Ikea.
-On lui envoie aussitôt un technicien. En arrivant, celui-ci dépose sa sacoche, laisse son mégot dans le cendrier et déclare :
-- Bien, voyons ça, je vais refaire le montage et nous verrons ce qui se passe.
-Il assemble normalement et, en un quart d'heure, l'affaire est réglée.
-- Hé bien, elle est très bien cette armoire, où est le problème ?
-- Attendez un peu que le bus passe, et vous verrez ...
-Le bus passe effectivement, et le sol vibre, l'armoire tremble, tremble et badaboum, elle tombe en miettes.
-"Ah ça mais, que le grand cric me croque, j'aurai le dernier mot !" dit le technicien, et il recommence le montage, mais avec de la colle superforte, des vis supplémentaires, de grands coups de marteau... Là, c'est fait.
-Et le bus qui continue son service passe dans la rue, et le sol vibre, l'armoire tremble, tremble, tremble et vlan, elle se retrouve en mille morceaux.
-Le technicien se fâche : "Caramba, j'en aurai le cœur net. Je vais tout remonter normalement, et je vais me mettre à l'intérieur pour voir ce qui se passe quand ça vibre".
-Et c'est à ce moment-là que le mari de la dame rentre du travail. Je dois préciser qu'il est très jaloux.
-Tout de suite, il voit la sacoche, le mégot, et apostrophe sa femme :
-"Tu me trompes, j'en suis sûr maintenant. à qui est cette sacoche ? Et ce cigare ?
-Tiens, et cette armoire, c'est nouveau ! Ton amant est là-dedans, je le sais !". Et il ouvre l'armoire.
-- Alors, qu'est-ce que vous foutez là, vous ?
-- Ben, vous n'allez pas me croire, mais j'attends l'autobus...
-Une dame a acheté une armoire chez Ikea et a décidé de la monter toute seule, sans attendre son mari.
-Elle regarde bien le plan et se met à l'ouvrage. Voilà, c'est fait. Mais en bas, dans la rue, un autobus passe.
-Le sol vibre, et l'armoire se met à trembler, trembler et patatras, la voilà par terre.
-La dame ne s'avoue pas vaincue. Elle reprend le montage, en suivant bien les étapes une après l'autre, elle ajoute même un point de colle ici et là... Voilà, c'est terminé.
-Mais l'autobus qui fait la navette est revenu, et de nouveau le sol vibre, l'armoire tremble, tremble et plaf, elle s'effondre.
-"Non d'une pipe, il y a comme un défaut", se dit la dame, et elle appelle le service après-vente Ikea.
-On lui envoie aussitôt un technicien. En arrivant, celui-ci dépose sa sacoche, laisse son mégot dans le cendrier et déclare :
-- Bien, voyons ça, je vais refaire le montage et nous verrons ce qui se passe.
-Il assemble normalement et, en un quart d'heure, l'affaire est réglée.
-- Hé bien, elle est très bien cette armoire, où est le problème ?
-- Attendez un peu que le bus passe, et vous verrez ...
-Le bus passe effectivement, et le sol vibre, l'armoire tremble, tremble et badaboum, elle tombe en miettes.
-"Ah ça mais, que le grand cric me croque, j'aurai le dernier mot !" dit le technicien, et il recommence le montage, mais avec de la colle superforte, des vis supplémentaires, de grands coups de marteau... Là, c'est fait.
-Et le bus qui continue son service passe dans la rue, et le sol vibre, l'armoire tremble, tremble, tremble et vlan, elle se retrouve en mille morceaux.
-Le technicien se fâche : "Caramba, j'en aurai le cœur net. Je vais tout remonter normalement, et je vais me mettre à l'intérieur pour voir ce qui se passe quand ça vibre".
-Et c'est à ce moment-là que le mari de la dame rentre du travail. Je dois préciser qu'il est très jaloux.
-Tout de suite, il voit la sacoche, le mégot, et apostrophe sa femme :
-"Tu me trompes, j'en suis sûr maintenant. à qui est cette sacoche ? Et ce cigare ?
-Tiens, et cette armoire, c'est nouveau ! Ton amant est là-dedans, je le sais !". Et il ouvre l'armoire.
-- Alors, qu'est-ce que vous foutez là, vous ?
-- Ben, vous n'allez pas me croire, mais j'attends l'autobus...
+<div class="" v-if="posts && posts.length">
+ <div class =" r" v-for="post of posts">
+  <div>
+   <h3>PROJET :{{ post._id }}  </h3>
+   <p><span><h4>Titre </h4></span> : {{ post.titre}} </p>
+   <img :src= "post.files" id="h"/>
+ <p><b> Nos objectifs sont </b> : {{ post.objectifs}} </p>
+ <p><b class=""> Nous proposons un  </b> : {{ post.business}} </p> 
+ <p><b>Description du produit </b> : {{ post.descriptionb}} </p>
+ <p><b class=""> Concernant notre cible  </b> : {{ post.business}} </p> 
+ <p><b>Nos concurrents immédiats sont  </b> : {{ post.descriptionb}} </p>
+ <p><b class=""> Description des stratégies  </b> : {{ post.strategiec}} </p> 
+ <p><b> Notre stratégie à nous sera   </b> : {{ post.strategiep}} </p>
+ <p><b class=""> Modèle économique  </b> : {{ post.modeleco}} </p> 
+ <p><b> Coût  </b> : {{ post.cout}} </p>
+ <p><b> Chiffre d´affaire prévu d´ici 1ans   </b> : {{ post.chiffrea }} </p>
+ <p><b> Risque  </b> : {{ post.risque}} </p>
+</div>
 
  <hr>
- <check/>
+ <check class="Z"/>
  <btnsup1 class="mt-5"/> 
  
- </div>
  
+ </div>
+ </div>
 
 </template>
 
-<script setup lang="ts">
+<script>
 import check from '../components/ckeck.vue';
 import navbar from '../components/navbar.vue';
 import btnsup1 from '../components/btnsup1.vue';
+
+import axios from 'axios';
+
+export default {
+  components: {
+navbar,
+check,
+    btnsup1,
+    },
+    data() {
+  return {
+    posts: [],
+    errors: []
+  }
+},
+
+// Fetches posts when the component is created.
+created() {
+  axios.get(`http://localhost:3004/pro/all`)
+  .then(response => {
+    // JSON responses are automatically parsed.
+    this.posts = response.data
+  })
+  .catch(e => {
+    this.errors.push(e)
+  })
+}
+
+    };
+  
 
 </script>
 
 <style>
 .r {
-    background-color: rgb(195, 228, 228);
-    border:1px solid black;
+    background-color: rgb(231, 239, 239);
+    border:5px solid rgb(214, 182, 182);
     height: 500px;
-    width:1720px ;
+    width:1500px ;
     margin-top:90px ;
+    margin-bottom:10px ;
     margin-left:30px ;
     padding:15px ;
     overflow: auto;
     border-radius: 10px;
+
+}
+.Z{
+  margin-top:3900px ;
+
+}
+#h{
+  width: 1400px;
+  height: 500px;
+  margin-bottom:30px ;
 }
 </style>

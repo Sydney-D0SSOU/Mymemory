@@ -40,4 +40,10 @@
     MDBNavbarItem,
     MDBBtn
   } from 'mdb-vue-ui-kit';
+
+
 </script>
+
+<style>
+
+</style>

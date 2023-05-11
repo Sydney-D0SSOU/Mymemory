@@ -6,31 +6,31 @@
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card shadow-9-strong" style=" ">
           <div class="card-body p-5 text-center">
-
+<form @submit.prevent="submitForm">
             <h3 class="mb-5">S´inscrire </h3>
 
             <div class="form-outline mb-4">
-              <input type="text" id="typePasswordX-2" class="form-control form-control-lg" />
+              <input type="text" id="typePasswordX-2" v-model="nom" class="form-control form-control-lg" />
               <label class="form-label" for="typePasswordX-2">Nom</label>
             </div>
 
             <div class="form-outline mb-4">
-              <input type="text" id="typePasswordX-2" class="form-control form-control-lg" />
+              <input type="text" id="typePasswordX-2" v-model="prenom" class="form-control form-control-lg" />
               <label class="form-label" for="typePasswordX-2">Prénom </label>
             </div>
             <div class="form-outline mb-4">
-              <input type="date" id="typePasswordX-2" class="form-control form-control-lg" />
+              <input type="date" id="typePasswordX-2" v-model="datenaiss" class="form-control form-control-lg" />
               <label class="form-label" for="typePasswordX-2"> Date de naissance  </label>
             </div>
 
             <div class="form-outline mb-4">
-              <input type="email" id="typeEmailX-2" class="form-control form-control-lg" />
+              <input type="email" id="typeEmailX-2" v-model="email" class="form-control form-control-lg" />
               <label class="form-label" for="typeEmailX-2">Email</label>
             </div>
 
 
             <div class="form-outline mb-4">
-              <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
+              <input type="password" id="typePasswordX-2" v-model="password" class="form-control form-control-lg" />
               <label class="form-label" for="typePasswordX-2">Mot de passe</label>
             </div>
 
@@ -41,7 +41,7 @@
             </div>
 
             <button class="btn btn-primary btn-lg btn-block" type="submit">Inscription</button>
-
+</form>
             <hr class="my-4">
 
             <button class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;"
@@ -57,9 +57,41 @@
 </section>
     </template>
     
-    <script setup lang="ts">
+    <script >
+import axios from 'axios' ;
+import tete from '../components/tete.vue' ;
+export default{
+  data () {
+    return{
+nom:'',
+prenom:'',
+datenaiss:'',
+email:'',
+password:''
 
-    import tete from '../components/tete.vue' ;
+    }
+  },
+  methods:{
+    submitForm(){
+      axios.post('http://localhost:3000/auth/signup',{
+        nom:this.nom,
+         prenom:this.prenom,
+        datenaiss: this.datenaiss,
+        email :this.email,
+        password:this.password
+      })
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+      this.$router.push('/login')
+    }
+
+  }
+}
+
     </script>
     
     <style>
