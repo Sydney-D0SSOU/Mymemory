@@ -1,0 +1,38 @@
+const express = require('express');
+const mongoose = require ('mongoose');
+const userrouter = require('./routes/utilisateur')
+const projetrouter = require('./routes/projet')
+const user = require('./models/utilisateur')
+const bodyparser= require('body-parser')
+const path = require('path');
+const app = express() ;
+const port = 3004 ;
+app.use(express.json());
+mongoose.set('strictQuery', true);
+app.listen(port, () => {
+  console.log(` serveur en ecoute sur le port : ${port}`)
+  
+})
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+  next();
+});
+db_url = 'mongodb+srv://blog123:blog123@cluster0.ixgvyv9.mongodb.net/?retryWrites=true&w=majority'
+mongoose.connect(db_url)
+.then((result)=>{
+  console.log('connexion avec succes a la BDD');
+
+})
+.catch((err)=>{
+  console.log(err);
+});
+app.use(express.urlencoded({extended :true}));
+app.use(bodyparser.json());
+app.use('/images', express.static(path.join(__dirname, 'images')));
+  app.use('/auth' ,userrouter);
+  app.use('/pro' ,projetrouter);
+
+
+  module.exports =app ;
