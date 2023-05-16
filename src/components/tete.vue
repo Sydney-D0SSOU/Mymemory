@@ -11,7 +11,7 @@
         <MDBNavbarItem  class="fs-3" to="/">
             KOUÈ-MÌTÒN
         </MDBNavbarItem>
-        <MDBNavbarItem class="fs-5 mt-2" to="#">
+        <MDBNavbarItem class="fs-5 mt-2" to="/theproject">
           Projet à financer 
         </MDBNavbarItem>
         <MDBNavbarItem class="fs-5 mt-2" to="#">

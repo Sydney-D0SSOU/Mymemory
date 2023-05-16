@@ -11,7 +11,7 @@
             KOUÈ-MÌTÒN
         </MDBNavbarItem>
         </router-link>
-        <MDBNavbarItem class="fs-5 mt-2" to="#">
+        <MDBNavbarItem class="fs-5 mt-2" to="/theproject">
           Projet à financer 
         </MDBNavbarItem>
         <MDBNavbarItem class="fs-5 mt-2" to="#">
@@ -48,8 +48,10 @@
             <MDBBtn  tag="a" size="lg" lg outline="light" href="#!" role="button" bg="green"
               >Proposer un projet</MDBBtn>
             </router-link>
+            <router-link to="/theproject">
             <MDBBtn class=" ml-10" tag="a" size="lg" lg outline="light" href="#!" color="secondary" role="button"  
               >Découvrir les projets </MDBBtn>
+              </router-link>
           </div>
         </div>
       </div>

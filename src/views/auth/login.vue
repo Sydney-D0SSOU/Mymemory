@@ -65,7 +65,6 @@ password:''
       .then(response => {
         alert('Authentification avec succès !');
         console.log(response.data);
-        alert('Authentification avec succès !');
      console.log(response.data.token);
      localStorage.setItem("Mon token",response.data.token)
         this.$router.push('/myproject')

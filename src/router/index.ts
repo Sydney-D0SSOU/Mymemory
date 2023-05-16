@@ -23,14 +23,19 @@ const routes = [
     component: () => import("../views/auth/login1.vue"),
   },
   {
-    path: "/admin",
-    name: "adproject",
-    component: () => import("../views/admin/adproject.vue"),
+    path: "/theproject",
+    name: "theproject",
+    component: () => import("../views/project/theproject.vue"),
   },
   {
     path: "/myproject",
     name: "myproject",
     component: () => import("../views/project/myproject.vue"),
+  },
+  {
+    path: "/admin",
+    name: "admin",
+    component: () => import("../views/admin/admin.vue"),
   },
   {
     path: "/test",

@@ -3,7 +3,7 @@
     <div class="row" id="j" v-if="posts && posts.length">
  <div class =" col-3 " v-for="post of posts">
   
-    <div class="card"
+    <div class="card shadow-lg "
      style="width: 18rem; margin-top:50px  ;">
   <img  :src= "post.files" id="p1" class="object-fit-cover border rounded"   alt=""/>
   <div class="card-body">
@@ -18,7 +18,7 @@
   </ul>
   <div class="card-body">
     <a href="#" class="card-link"></a>
-    <a href="#" class="card-link"> Voir plus</a>
+    <button type="button" class="btn btn-success"> voir plus </button>
   </div>
 </div> 
   </div>

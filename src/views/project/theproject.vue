@@ -1,11 +1,12 @@
 <template>
 
-  <navbar/>
+  <tete/>
   <div class="discover-page" data-path="/financer-projets">
     <section class="filters white">
     <div class="background-full-color flex-container text-center">
         <div class="background-title flex-item">
-            <h2>Business Analyst </h2>
+            <h2><p>DÉCOUVREZ DES PROJETS INNOVANTS ET </p>
+              À FORT IMPACT SOCIAL </h2>
         </div>
     </div>
     </section>
@@ -21,10 +22,12 @@
 <script>
 import navbar from '../../components/navbar.vue';
 import cardpro from "../../components/cardpro.vue";
+import tete from "../../components/tete.vue"
 export default {
   components:{
     cardpro,
-    navbar
+    navbar,
+    tete,
   }
 }
   
@@ -56,7 +59,7 @@ export default {
 
 }
 .background-full-color {
-background-color: #7fc0d6f0;
+background-color: #abd5d8f0;
     width: 100%;
     height:200px ;
     min-height: 10.625em;

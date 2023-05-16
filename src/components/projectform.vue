@@ -207,10 +207,10 @@
       </MDBCol>
     <MDBCol sm="" class=" fs-5">
     <MDBRadio
-      label=" Modele dabonnement"
-      name="Modele dabonnement"
+      label=" Modèle de d´abonnement"
+      name="Modele d´abonnement"
       v-model="modeleco"
-      value="Modele dabonnement"
+      value="Modèle d´abonnement"
      
       
       wrapperClass="mb-3"
@@ -218,10 +218,10 @@
     </MDBCol>
     <MDBCol sm="" class=" fs-5">
     <MDBRadio
-      label="Modèle de commission "
-      name="Modele de commission"
+      label="Modèle de commissionnement "
+      name="Modèle de commissionnement"
       v-model="modeleco"
-      value="Modele de commission"
+      value="Modèle de commissionnement3"
      
       invalidFeedback="More example invalid feedback text"
       wrapperClass="mb-3"

@@ -1,6 +1,6 @@
 <template>
  
-    <navbar/>
+    <sidebar/>
  
    
 
@@ -48,8 +48,11 @@
 
 <script>
 import axios from 'axios';
-import tete from "../../components/tete.vue";
+import sidebar from "../../components/sidebar.vue";
 export default{
+  components:{
+    sidebar
+  },
 data () {
  return{
 email:'',
