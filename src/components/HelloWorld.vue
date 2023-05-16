@@ -161,7 +161,7 @@ MDBContainer
   import card1 from "../components/card1.vue";
   import btn from "../components/btn.vue";
   import pied from "../components/pied.vue";
-  import login from "../views/login.vue" ;
+  import login from "../views/auth/login.vue" ;
 </script>
 <style scoped>
 .cta-project {

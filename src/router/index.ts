@@ -9,32 +9,33 @@ const routes = [
   {
     path: "/login",
     name: "login",
-    component: () => import("../views/login.vue"),
+    component: () => import("../views/auth/login.vue"),
   },
   {
     path: "/signup",
     name: "signup",
-    component: () => import("../views/signup.vue"),
+    component: () => import("../views/auth/signup.vue"),
   },
-  {
-    path: "/admin",
-    name: "admin",
-    component: () => import("../views/admin.vue"),
-  },
+ 
   {
     path: "/login1",
     name: "login1",
-    component: () => import("../views/login1.vue"),
+    component: () => import("../views/auth/login1.vue"),
   },
   {
-    path: "/adproject",
+    path: "/admin",
     name: "adproject",
-    component: () => import("../views/adproject.vue"),
+    component: () => import("../views/admin/adproject.vue"),
   },
   {
     path: "/myproject",
     name: "myproject",
-    component: () => import("../views/myproject.vue"),
+    component: () => import("../views/project/myproject.vue"),
+  },
+  {
+    path: "/test",
+    name: "test",
+    component: () => import("../views/test/test.vue"),
   }
 ];
 

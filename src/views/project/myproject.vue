@@ -22,15 +22,16 @@
 
 <script setup lang="ts">
 
-import projectform from "../components/projectform.vue"; 
+import projectform from "../../components/projectform.vue"; 
 
-import tete from "../components/tete.vue"; 
+import tete from "../../components/tete.vue"; 
 </script>
 
 <style>
 .background-full-color {
-background-color: #803d1671;
+background-color: #7ebcd7f0;
     width: 100%;
+    height:200px ;
     min-height: 10.625em;
     padding: 3.75em 0;
 }

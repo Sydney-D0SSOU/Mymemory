@@ -101,7 +101,7 @@
  
   <MDBRow class="">
     <center>
-   <label class="fs-4 mt-5 mb-3 text-center " > Enummérer les partenaires  de votre projet (si vous en avez) ?  </label>
+   <label class="fs-4 mt-5 mb-3 text-center " > Enummérez les partenaires  de votre projet (si vous en avez) ?  </label>
 
       <MDBCol sm="5" class="ms-5 mt-40 ">
         <MDBTextarea
@@ -117,7 +117,7 @@
   <MDBRow class="">
     <center>
    <label class="fs-4 mt-5 mb-3 text-center " > 
-   <p> Quelles sont les entreprises que vous considérez directement  </p> comme étant vos concurrent immédiat ?
+   <p> Quelles sont les entreprises que vous considérez directement  </p> comme étant vos concurrents immédiats ?
  
   </label>
 
@@ -135,7 +135,7 @@
   <MDBRow class="">
     <center>
    <label class="fs-4 mt-5 mb-3 text-center " > 
-   <p> Estimez quelle sont leur part du marché et quels a été leur stratégie pour y arriver ?   </p> 
+   <p> Estimez leur part du marché et leur stratégie pour y arriver ?   </p> 
  
   </label>
 
@@ -153,7 +153,7 @@
   <MDBRow class="">
     <center>
    <label class="fs-4 mt-5 mb-3 text-center " > 
-   <p> Quels est la stratégie que vous pensez mettre en    </p>  pour prendre une  part de ce marché ?
+   <p> Quelle est la stratégie que vous pensez mettre en    </p>  pour prendre une  part de ce marché ?
  
   </label>
 
@@ -243,7 +243,7 @@
   </MDBRow>
   <MDBRow class="">
     <center>
-   <label class="fs-4 mt-5 mb-3 text-center " > Quel chiffre d´affaire pensez-vous faire et d´ici combien d´années ?   </label>
+   <label class="fs-4 mt-5 mb-3 text-center " > Quel chiffre d´affaire pensez-vous faire  d´ici 1an ?   </label>
 
       <MDBCol sm="5" class="ms-5 mt-40 ">
         <input type="text" v-model="chiffrea" class="form-control" />
@@ -335,6 +335,8 @@ MDBContainer,
   },
   methods: {
    submitForm(){
+    const token = localStorage.getItem("Mon token") ;
+
     const formData = new FormData();
       formData.append("titre", this.titre);
       formData.append("objectifs", this.objectifs);
@@ -351,10 +353,16 @@ MDBContainer,
       formData.append("chiffrea", this.chiffrea);
       formData.append("risque", this.risque);
 
-   axios.post('http://localhost:3004/pro/create',formData)
+   axios.post('http://localhost:3004/pro/create',formData,
+   {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+})
    .then(response => {
           console.log(response);
           alert("Formulaire envoyé avec succès !");
+          this.$router.push('/')
         })
         .catch(error => {
           console.log(error);

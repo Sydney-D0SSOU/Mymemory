@@ -59,7 +59,7 @@
     
     <script >
 import axios from 'axios' ;
-import tete from '../components/tete.vue' ;
+import tete from '../../components/tete.vue' ;
 export default{
   data () {
     return{
@@ -73,7 +73,7 @@ password:''
   },
   methods:{
     submitForm(){
-      axios.post('http://localhost:3000/auth/signup',{
+      axios.post('http://localhost:3004/auth/signup',{
         nom:this.nom,
          prenom:this.prenom,
         datenaiss: this.datenaiss,
@@ -82,11 +82,13 @@ password:''
       })
       .then(response => {
         console.log(response.data);
+        alert('Inscription validé !');
+        this.$router.push('/login')
       })
       .catch(error => {
         console.log(error);
+        alert('Inscriptionp !');
       });
-      this.$router.push('/login')
     }
 
   }

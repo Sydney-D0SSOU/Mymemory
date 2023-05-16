@@ -14,12 +14,8 @@
             KOUÈ-MÌTÒN
         </MDBNavbarItem>
         </router-link>
-        <router-link to="/admin">
-          <MDBNavbarItem  class="fs-3  mt-2 ms-2" >
-             Creation 
-            </MDBNavbarItem>
-        </router-link>
-          <router-Link to="/adproject">
+        
+          <router-Link to="/admin">
           <MDBNavbarItem  class="fs-3 mt-2 ms-4" >
           
             Projets

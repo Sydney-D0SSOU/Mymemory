@@ -11,14 +11,14 @@
             <form @submit.prevent="submitForm">
             <h3 class="mb-5">Se connecter</h3>
 
-            <div class="form-outline mb-4">
+            <div class=" mb-4">
+              <label class="form-label" >Email</label>
               <input type="email" id="typeEmailX-2"   v-model="email" class="form-control form-control-lg" />
-              <label class="form-label" for="typeEmailX-2">Email</label>
             </div>
 
-            <div class="form-outline mb-4">
-              <input type="password" id="typePasswordX-2" class="form-control form-control-lg"  v-model="password" />
+            <div class=" mb-4">
               <label class="form-label" for="typePasswordX-2">Mot de passe</label>
+              <input type="password" id="typePasswordX-2" class="form-control form-control-lg"  v-model="password" />
             </div>
 
             <!-- Checkbox -->
@@ -46,7 +46,7 @@
 
 <script>
 import axios from 'axios';
-import tete from "../components/tete.vue";
+import tete from "../../components/tete.vue";
 export default{
   data () {
     return{
@@ -65,6 +65,9 @@ password:''
       .then(response => {
         alert('Authentification avec succès !');
         console.log(response.data);
+        alert('Authentification avec succès !');
+     console.log(response.data.token);
+     localStorage.setItem("Mon token",response.data.token)
         this.$router.push('/myproject')
       })
       .catch(error => {
