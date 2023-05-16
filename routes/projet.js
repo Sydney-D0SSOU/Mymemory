@@ -7,6 +7,6 @@ const projetCtrl = require('../controllers/projet');
  
 router.post('/create',upload,projetCtrl.createprojet);
 
-router.get('/all',projetCtrl.getallprojet);
+router.get('/all',auth,projetCtrl.getallprojet);
 module.exports=router;
 

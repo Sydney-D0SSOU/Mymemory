@@ -16,7 +16,7 @@ exports.createprojet = ((req, res, next) => {
     modeleco:req.body.modeleco, 
     cout :req.body.cout,
     risque:req.body.risque,
-    chiffrea: this.chiffrea
+    chiffrea: req.body.chiffrea
     
   });
 
@@ -34,7 +34,7 @@ exports.createprojet = ((req, res, next) => {
   
 });
 exports.getallprojet = ((req,res,next)=>{
-  
+  console.log(req.headers);
   projet.find()
   .then((product)=>{
 res.status(200).json(product);})
