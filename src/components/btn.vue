@@ -1,8 +1,14 @@
 <template>
-  
-    <MDBBtn color="bg-dark" class="shadow" size="lg"> Découvrir d'autres projets </MDBBtn>
-    
+ <button type="button" class="btn btn-info btn-lg"  @click="changer">Découvrir d'autres projets </button> 
   </template>
-  <script setup lang="ts">
-  import { MDBBtn } from "mdb-vue-ui-kit";
+  <script >
+  export default{
+    methods :{
+    changer(){
+      this.$router.push('/theproject')
+    },
+  }
+  }
+
+
 </script>

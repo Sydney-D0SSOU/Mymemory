@@ -5,29 +5,32 @@
     <section class="filters white">
     <div class="background-full-color flex-container text-center">
         <div class="background-title flex-item">
-            <h2><p>DÉCOUVREZ DES PROJETS INNOVANTS ET </p>
+            <h2 class="text-light"><p>DÉCOUVREZ DES PROJETS INNOVANTS ET </p>
               À FORT IMPACT SOCIAL </h2>
         </div>
     </div>
     </section>
     </div>
   
-  <div class="container">
+  <div class="container" id="g1">
     
     <cardpro/> 
 
-   </div> 
+   </div>
+   <pied/> 
 </template>
 
 <script>
 import navbar from '../../components/navbar.vue';
 import cardpro from "../../components/cardpro.vue";
-import tete from "../../components/tete.vue"
+import tete from "../../components/tete.vue";
+import pied from "../../components/pied.vue";
 export default {
   components:{
     cardpro,
     navbar,
     tete,
+    pied
   }
 }
   
@@ -64,5 +67,8 @@ background-color: #abd5d8f0;
     height:200px ;
     min-height: 10.625em;
     padding: 3.75em 0;
+}
+#g1{
+  margin-bottom:50px ;
 }
 </style>

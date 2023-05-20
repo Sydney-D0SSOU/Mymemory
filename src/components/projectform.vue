@@ -1,193 +1,203 @@
 <template>
-  <div>
+   
     <form @submit.prevent="submitForm">
+     
+<center>
+      <div class="form-group" id="custom" >
+        
+        <fieldset>
+          <center>
+  <legend>Mon business plan </legend>
+  </center>
     <MDBRow class="">
-    <center>
-   <label class="fs-4 mt-5 mb-3 text-center " >Donnez un titre à votre projet </label> 
+    
 
-      <MDBCol sm="5" class="ms-5 mt-40 ">
-        <MDBInput class="form-control" id="form11Name2" v-model="titre"/>
+      <MDBCol sm="" class="ms-5 mt-40 ">
+        <label class="fs-5 mt-5 mb-3  " >Donnez un titre à votre projet </label> 
+        <MDBInput 
+        label="Intitulé du projet"
+        class="form-control" 
+        id="form11Name2" 
+        v-model="titre"/>
 
     
     </MDBCol>
-</center>
 <MDBRow class="">
-    <center>
-   <label class="fs-4 mt-5 mb-4 text-center " > Quels sont les objectifs de  votre projet ? (Soyez précis et conçis) </label>
+    
 
-      <MDBCol sm="5" class="ms-5 mt-40 ">
+      <MDBCol sm="" class="ms-5 mt-40 ">
+        <label class="fs-5 mt-5 mb-4 text " > Quels sont les objectifs de  votre projet ? (Soyez précis et conçis) </label>
+
         <MDBTextarea
         type="textarea"
-        label=""
+        label="Objectifs du projet"
         id="form11Name2"
         v-model="objectifs"
       />
     
     </MDBCol>
-</center>
+
   </MDBRow>
   </MDBRow>
-  <MDBRow class="">
-    <center>
-   <label class="fs-4 mt-5 mb-3 text-center " > 
-   <p> Que proposez-vous  ? </p>
-   
-  </label>
+    
 
  <MDBRow class="ms-5 ">
      
      
   <MDBCol  class="fs-5  ">
+    <label class="fs-5 mt-5 mb-3 text-center " > 
+   <p> Que proposez-vous  ? </p>
+   </label>
         <MDBRadio
         
-      label="Produit"
+      label="Un produit"
       name="Produit"
       v-model="business"
       value="Produit"
       
     />
-      </MDBCol>
-      <MDBCol sm="" class=" fs-5">
+    
     <MDBRadio
-      label="Service"
+      label="Un service"
       name="Service"
       v-model="business"
       value="Service"
       
-      invalidFeedback="More example invalid feedback text"
-      wrapperClass="mb-3"
+     
     />
       </MDBCol>
- </MDBRow>
-  </center> 
+  
 
 
   </MDBRow>
   <MDBRow class="">
-    <center>
-   <label class="fs-4 mt-5 mb-3 text-center " >Décrivez votre produit ou service  </label>
+    
 
-      <MDBCol sm="5" class="ms-5 mt-40 ">
-        <textarea type="text"  v-model="descriptionb" class="form-control" ></textarea>
+      <MDBCol  class="ms-5 mt-40 ">
+        <label class="fs-5 mt-5 mb-3  " >Décrivez votre produit ou service  </label>
+
+        <MDBTextarea 
+        label="Description" 
+         v-model="descriptionb" 
+         class="form-control" />
     
     </MDBCol>
-</center>
+
   </MDBRow>
   <MDBRow class="">
-    <center>
-   <label class="fs-4 mt-5 mb-3 text-center " for="images">Joindre une image ou affiche qui illustre au mieux votre projet   </label>
+    
 
-      <MDBCol sm="5" class="ms-5 mt-40 ">
+      <MDBCol  class="ms-5 mt-40 ">
+        <label class="fs-5 mt-5 mb-3 text-center " for="images">Joindre une image ou affiche qui illustre au mieux votre projet   </label>
+
         <MDBFile class="form-control" name="images"   ref="fileInput" @change="handleFileInputChange" />
     </MDBCol>
-</center>
+
   </MDBRow>
  
   <MDBRow class="">
-    <center>
-   <label class="fs-4 mt-5 mb-3 text-center " > Décrivez votre marché cible  ? </label>
+    
+      <MDBCol sm="" class="ms-5 mt-40 ">
+        <label class="fs-5 mt-5 mb-3  " > Décrivez votre marché cible  ? </label>
 
-      <MDBCol sm="5" class="ms-5 mt-40 ">
         <MDBTextarea
         type="textarea"
-        label=""
+        label="Cible visé "
         id="form11Name2"
         v-model="cible"
       />
     
     </MDBCol>
-</center>
+
   </MDBRow>
  
   <MDBRow class="">
-    <center>
-   <label class="fs-4 mt-5 mb-3 text-center " > Enummérez les partenaires  de votre projet (si vous en avez) ?  </label>
+  
+   <label class="fs-5 mt-5 mb-3 " > Enummérez les partenaires  de votre projet (si vous en avez) ?  </label>
 
-      <MDBCol sm="5" class="ms-5 mt-40 ">
+      <MDBCol sm="" class="ms-5 mt-40 ">
         <MDBTextarea
         type="textarea"
-        label=""
+        label="Partenaires"
         id="form11Name2"
         v-model="partenaire"
       />
     
     </MDBCol>
-</center>
+
   </MDBRow> 
   <MDBRow class="">
-    <center>
-   <label class="fs-4 mt-5 mb-3 text-center " > 
-   <p> Quelles sont les entreprises que vous considérez directement  </p> comme étant vos concurrents immédiats ?
- 
-  </label>
-
-      <MDBCol sm="5" class="ms-5 mt-40 ">
+    
+    
+      <MDBCol  class="ms-5 mt-40 ">
+        <label class="fs-5 mt-5 mb-3  " > 
+        <p> Quelles sont les entreprises que vous considérez directement  comme étant vos concurrents immédiats ? </p>
+</label>
         <MDBTextarea
         type="textarea"
-        label=""
+        label="Analyse de la  concurrences "
         id="form11Name2"
         v-model="concurrents"
       />
     
     </MDBCol>
-</center>
+
   </MDBRow>
   <MDBRow class="">
-    <center>
-   <label class="fs-4 mt-5 mb-3 text-center " > 
+    
+   
+
+      <MDBCol  class="ms-5 mt-40 ">
+        <label class="fs-5 mt-5 mb-3 text-center " > 
    <p> Estimez leur part du marché et leur stratégie pour y arriver ?   </p> 
  
   </label>
-
-      <MDBCol sm="5" class="ms-5 mt-40 ">
         <MDBTextarea
         type="textarea"
-        label=""
+        label="Dominance de la concurrences "
         id="form11Name2"
         v-model="strategiec"
       />
     
     </MDBCol>
-</center>
   </MDBRow>
   <MDBRow class="">
-    <center>
-   <label class="fs-4 mt-5 mb-3 text-center " > 
-   <p> Quelle est la stratégie que vous pensez mettre en    </p>  pour prendre une  part de ce marché ?
+
+
+      <MDBCol  class="ms-5 mt-40 ">
+        <label class="fs-5 mt-5 mb-3  " > 
+   <p> Quelle est la stratégie que vous pensez mettre en pour prendre une  part de ce marché ? </p>
  
   </label>
-
-      <MDBCol sm="5" class="ms-5 mt-40 ">
         <MDBTextarea
         type="textarea"
-        label=""
+        label="Ma stratégie"
         id="form11Name2"
         v-model="strategiep"
       />
     
     </MDBCol>
-</center>
   </MDBRow>
   <MDBRow class="">
-    <center>
-   <label class="fs-4 mt-5 mb-3 text-center " > 
-   <p> Quel sera votre modèle économique ? </p>
+
    
-  </label>
- <MDBRow class="ms-5 ">
+ <MDBRow class="ms-4">
+  <label class="fs-5 mt-5 mb-3  " > 
+   <p> Quel sera votre modèle économique ? </p>
+   </label>
       <MDBCol  class="fs-5  ">
         <MDBRadio
         
-      label="Modèle freemium "
-      name="Modèle freemium"
+      label=" Freemium "
+      name="Freemium"
       v-model="modeleco"
-      value="Modèle freemium"
+      value="Modèle Freemium"
      
     />
       </MDBCol>
       <MDBCol sm="" class=" fs-5">
     <MDBRadio
-      label="Modèle publicitaire"
+      label=" Publicitaire"
       name="Modèle publicitaire"
       v-model="modeleco"
       value="Modèle publicitaire"
@@ -198,8 +208,8 @@
       </MDBCol>
       <MDBCol sm="" class="fs-5 ">
     <MDBRadio
-      label="Modèle de vente directe"
-      name="Modèle de vente directe"
+      label=" Vente directe"
+      name=" vente directe"
       v-model="modeleco"
       value="Modele de vente directe"
      
@@ -207,8 +217,8 @@
       </MDBCol>
     <MDBCol sm="" class=" fs-5">
     <MDBRadio
-      label=" Modèle de d´abonnement"
-      name="Modele d´abonnement"
+      label="Abonnement"
+      name="Abonnement"
       v-model="modeleco"
       value="Modèle d´abonnement"
      
@@ -218,8 +228,8 @@
     </MDBCol>
     <MDBCol sm="" class=" fs-5">
     <MDBRadio
-      label="Modèle de commissionnement "
-      name="Modèle de commissionnement"
+      label="Commissionnement "
+      name=" Commissionnement"
       v-model="modeleco"
       value="Modèle de commissionnement3"
      
@@ -228,51 +238,50 @@
     />
     </MDBCol>
  </MDBRow>
-</center>
   </MDBRow>
  
   <MDBRow class="">
-    <center>
-   <label class="fs-4 mt-5 mb-3 text-center " > À combien estimez-vous le côut de lancement de votre projet ? (En FCFA)   </label>
 
-      <MDBCol sm="5" class="ms-5 mt-40 ">
-        <input type="text" v-model="cout" class="form-control" />
+      <MDBCol sm="" class="ms-5 mt-40 ">
+        <label class="fs-5 mt-5 mb-3 text-center " > À combien estimez-vous le côut de lancement de votre projet ? (En FCFA)   </label>
+
+        <input type="text" v-model="cout" class="form-control "  />
     
     </MDBCol>
-</center>
   </MDBRow>
   <MDBRow class="">
-    <center>
-   <label class="fs-4 mt-5 mb-3 text-center " > Quel chiffre d´affaire pensez-vous faire  d´ici 1an ?   </label>
 
-      <MDBCol sm="5" class="ms-5 mt-40 ">
+      <MDBCol sm="" class=" mt-40 ">
+        <label class="fs-5 mt-5 mb-3  " > Quel chiffre d´affaire pensez-vous faire  d´ici 1an ?   </label>
+
         <input type="text" v-model="chiffrea" class="form-control" />
     
     </MDBCol>
-</center>
   </MDBRow>
   <MDBRow class="">
-    <center>
-   <label class="fs-4 mt-5 mb-2 text-center " > Quels sont les risques liés à la mise en ouevre de votre projet
-    <p> et comment pensez-vous  y remédier  ? </p> </label>
+   
+      <MDBCol sm="" class=" mt-40 ">
+        <label class="fs-5 mt-5 mb-2  " > Quels sont les risques liés à la mise en ouevre de votre projet
+     et comment pensez-vous  y remédier  ?  </label>
 
-      <MDBCol sm="5" class="ms-5 mt-40 ">
         <MDBTextarea
         type="textarea"
         label=""
         id="form11Name2"
         v-model="risque"
       />
-    
     </MDBCol>
-    <button type="submit" class="btn btn-danger mt-5">SOUMETTRE</button>
-</center>
   </MDBRow> 
-  
-  </form>
-  <pied class="mt-5"/>
+  <button type="submit" class="btn btn-success mt-5  ">SOUMETTRE</button>
+</fieldset>
 
   </div>
+</center>
+  </form>
+
+  <pied class="mt-5"/>
+
+  
 </template>
 <script >
 
@@ -378,3 +387,20 @@ MDBContainer,
   },
 };
 </script>
+<style>
+#custom{
+  background-color: #f1fefedb;
+  width: 60%;
+  margin-left:80px ;
+  margin-top: 50px;
+  
+}
+fieldset {
+  border: 4px double #104b6b;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+legend {
+  font-weight: bold;
+}
+</style>

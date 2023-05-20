@@ -18,7 +18,9 @@
   </ul>
   <div class="card-body">
     <a href="#" class="card-link"></a>
-    <button type="button" class="btn btn-success"> voir plus </button>
+    
+    <button type="button" @click="showDetails(post._id)"  class="btn btn-success"> voir plus </button>
+    
   </div>
 </div> 
   </div>
@@ -54,23 +56,29 @@
 },
 
 // Fetches posts when the component is created.
-created() {
-  const token = localStorage.getItem("Mon token") ;
-  axios.get(`http://localhost:3004/pro/all`, {
-  headers: {
-    Authorization: `Bearer ${token}`,
+mounted() {
+    this.fetchData();
   },
-})
-  .then(response => {
-    // JSON responses are automatically parsed.
-    this.posts = response.data
-  })
-  .catch(e => {
-    this.errors.push(e)
-  })
-}
+  methods: {
+    async fetchData() {
+      try {
+        const token = localStorage.getItem("Mon token") ;
 
-
+        const response = await axios.get('http://localhost:3004/pro/all',
+        {
+   headers: {
+     Authorization: `Bearer ${token}`,
+   },
+  });
+        this.posts = response.data;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    showDetails(postId) {
+      this.$router.push(`/detailspro/${postId}`);
+    },
+  },
    }
 </script>
 <style>
@@ -78,8 +86,5 @@ created() {
     width: 288px;
     height: 200px;
 };
-#j{
- ;
 
-}
 </style>

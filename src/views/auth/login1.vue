@@ -3,8 +3,8 @@
     <sidebar/>
  
    
-
-<section class="vh-100" style="background-color:grey ;">
+    
+<section class="vh-100" style="background-color:rgb(212, 236, 245) ; height:100% ;" >
 <div class="container py-5  h-200">
  <div class="row d-flex justify-content-center align-items-center h-400">
    <div class="col-12 col-md-8 col-lg-6 col-xl-5">

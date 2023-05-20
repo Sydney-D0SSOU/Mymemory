@@ -1,5 +1,11 @@
 <template>
     <navbar/>
+<fieldset>
+  <legend>Titre du groupe de champs</legend>
+  <!-- Champs de formulaire ici -->
+</fieldset>
+
+
     
   <div class="" v-if="posts && posts.length">
    <div class =" r" v-for="post of posts">

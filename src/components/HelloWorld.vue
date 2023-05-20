@@ -40,18 +40,13 @@
         height: 600px;
         margin-top: px;
       ">
-      <div class="mask" style="background-color: rgba(85, 82, 82, 0.5);">
+      <div class="mask" style="background-color: rgba(113, 106, 106, 0.37);">
         <div class="d-flex justify-content-center align-items-center h-100">
           <div class="text-white">
             <h1 class="mb-3">Faisons vivre les projets créatifs.</h1>
-            <router-link to="/myproject">
-            <MDBBtn  tag="a" size="lg" lg outline="light" href="#!" role="button" bg="green"
-              >Proposer un projet</MDBBtn>
-            </router-link>
-            <router-link to="/theproject">
-            <MDBBtn class=" ml-10" tag="a" size="lg" lg outline="light" href="#!" color="secondary" role="button"  
-              >Découvrir les projets </MDBBtn>
-              </router-link>
+            <button type="button" class="btn btn-light btn-lg btn-shadow-lg " @click="changer">Proposer un projet</button>
+
+            <button type="button" class="btn btn-dark btn-lg ms-2 btn-shadow-lg" @click="a">Découvrir les projets</button>
           </div>
         </div>
       </div>
@@ -73,18 +68,17 @@
      
  </MDBRow>
  <center>
+
     <btn class=" mb-5 mt-5"/>
- </center>
+  </center>
   </MDBContainer>
   <div class="cta-project flex-container text-center">
 	<div class="flex-item">
 		<div class="cta-text">
                       Vous êtes porteur de projet? Lancez-vous !
 		</div>
-		<div class="cta-btn">
-      <router-link to="/myproject">
-      <MDBBtn color="secondary" class="btn-lg">   Proposez un projet    </MDBBtn>
-      </router-link>
+		<div class="">
+      <button type="button" class="btn btn-light btn-lg" @click="changer">Proposer un projet</button>
 		</div>
 
 	</div>
@@ -147,7 +141,7 @@
   </main>
   <pied/>
 </template>
-<script setup lang="ts">
+<script>
   import {
     MDBNavbar,
     MDBNavbarToggler,
@@ -164,6 +158,34 @@ MDBContainer
   import btn from "../components/btn.vue";
   import pied from "../components/pied.vue";
   import login from "../views/auth/login.vue" ;
+  export default {
+    components:{
+      MDBNavbar,
+    MDBNavbarToggler,
+    MDBNavbarNav,
+    MDBNavbarItem,
+    MDBBtn,
+    MDBCol, 
+    MDBRow,
+MDBContainer,
+card,
+card1,
+btn,
+pied,
+login
+
+    },
+    methods:{
+      changer() {
+        this.$router.push('/myproject')
+      },
+      a(){
+        this.$router.push('/theproject')
+
+      }
+    }
+    
+  }
 </script>
 <style scoped>
 .cta-project {
