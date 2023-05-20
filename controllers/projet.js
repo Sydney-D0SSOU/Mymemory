@@ -1,38 +1,64 @@
 const projet = require('../models/projet');
+const utilisateur = require('../models/utilisateur');
+
 const fs = require('fs')
-exports.createprojet = ((req, res, next) => {
- 
-  const X = new   projet({
-    titre :req.body.titre,
-    objectifs:req.body.objectifs,
-    business :req.body.business,
-    descriptionb:req.body.descriptionb, 
-    files: `${req.protocol}://${req.get('host')}/images/${req.file.filename}` ,
-    cible :req.body.cible,
-    partenaire:req.body.partenaire, 
-    concurrents:req.body.concurrents, 
-    strategiec :req.body.strategiec,
-    strategiep:req.body.strategiep, 
-    modeleco:req.body.modeleco, 
-    cout :req.body.cout,
-    risque:req.body.risque,
-    chiffrea: req.body.chiffrea
-    
-  });
-
-  X.save()
-  .then(() => {
-      res.status(201).json({
-          message: 'Objet créé !'
-        });
-
-      })
-   .catch((error) => { 
-      res.status(400).json({error: error  });
-      }
-    );
+exports.createprojet = (async(req, res, next) => {
+ const {    
+  titre ,
+  objectifs,
+  business ,
+  descriptionb, 
+  files,
+  cible ,
+  partenaire, 
+  concurrents, 
+  strategiec,
+  strategiep, 
+  modeleco, 
+  cout ,
+  risque,
+  chiffrea ,
   
-});
+  
+} =req.body
+const utilisateurId = req.auth.userId;
+const createdAt = new Date();
+const formattedDate = createdAt.toString();
+
+// Utilisez la valeur `formattedDate` lors de l'enregistrement en base de données
+
+
+// Utilisez la valeur de 'formattedDate' lors de l'enregistrement dans la base de données
+
+try{
+  const X = new   projet({
+    titre ,
+  objectifs,
+  business ,
+  descriptionb, 
+  files: `${req.protocol}://${req.get('host')}/images/${req.file.filename}` ,
+  cible ,
+  partenaire, 
+  concurrents, 
+  strategiec,
+  strategiep, 
+  modeleco, 
+  cout ,
+  risque,
+  chiffrea ,
+  utilisateurId ,
+  createdAt : formattedDate
+   });
+
+  const produitEnregistre = await X.save();
+  console.log('Produit enregistré :', produitEnregistre);
+  res.status(201).json(produitEnregistre);
+} 
+catch (error) {
+  console.error('Erreur lors de l\'enregistrement du produit :', error);
+  res.status(500).json({ error: 'Erreur lors de l\'enregistrement du produit' });
+}  
+  });
 exports.getallprojet = ((req,res,next)=>{
   console.log(req.headers);
   projet.find()
@@ -45,3 +71,13 @@ res.status(200).json(product);})
          
       
   });
+  exports.getoneprojet =(req,res,next)=>{
+    projet.findById({_id:req.params.id})
+    .then((projet)=>{
+      res.status(200).json(projet)
+    })
+    .catch((error)=>{
+      console.log(error);
+      
+    })
+  };

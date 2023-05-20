@@ -5,8 +5,10 @@ const auth = require('../middlewares/auth')
 const projetCtrl = require('../controllers/projet');
 
  
-router.post('/create',upload,projetCtrl.createprojet);
+router.post('/create',auth,upload,projetCtrl.createprojet);
+
 
 router.get('/all',auth,projetCtrl.getallprojet);
+router.get ('/one/:id',auth,projetCtrl.getoneprojet)
 module.exports=router;
 
