@@ -1,24 +1,35 @@
 const mongoose = require('mongoose')
 const utilisateur = require('./utilisateur')
 const projetSchema = mongoose.Schema({
-    titre:{type:String,required:false},
-    objectifs :{type:String,required:false },
-    business:{type:String,required:false},
-    descriptionb:{type:String,required:false},
-    files :{type:String,required:false},
-    cible:{type:String,required:false},
-    partenaire:{type:String,required:false},
-    concurrents :{type:String,required:false },
-    strategiec:{type:String,required:false},
-    strategiep :{type:String,required:false},
-    modeleco :{type:String,required:false },
-    cout:{type:Number,required:false},
-    risque:{type:String,required:false},
-    chiffrea :{type:Number,required:false},
-    utilisateurId: {type:String,required:false },
+    titre:{type:String,required:true},
+    objectifs :{type:String,required:true },
+    business:{type:String,required:true},
+    descriptionb:{type:String,required:true},
+    files :{type:String,required:true},
+    cible:{type:String,required:true},
+    partenaire:{type:String,required:true},
+    concurrents :{type:String,required:true },
+    strategiec:{type:String,required:true},
+    strategiep :{type:String,required:true},
+    modeleco :{type:String,required:true },
+    cout:{type:Number,required:true},
+    risque:{type:String,required:true},
+    chiffrea :{type:Number,required:true},
+    utilisateurId: {type:String,required:true },
     createdAt: {
         type: String ,
       required :true
+      },
+      updatedAt: {
+        type: Date ,
+        default:Date ,
+      required :false
+      },
+
+      etat:{
+        type :String,
+        default:'En attente de traitement ...',
+        required:true
       }
        
     

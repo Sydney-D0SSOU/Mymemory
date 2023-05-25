@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require ('mongoose');
 const userrouter = require('./routes/utilisateur')
+const adminrouter = require('./routes/admin')
 const projetrouter = require('./routes/projet')
 const user = require('./models/utilisateur')
 const bodyparser= require('body-parser')
@@ -33,6 +34,6 @@ app.use(bodyparser.json());
 app.use('/images', express.static(path.join(__dirname, 'images')));
   app.use('/auth' ,userrouter);
   app.use('/pro' ,projetrouter);
-
+ app.use('/auth1',adminrouter);
 
   module.exports =app ;

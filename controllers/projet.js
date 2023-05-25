@@ -60,7 +60,6 @@ catch (error) {
 }  
   });
 exports.getallprojet = ((req,res,next)=>{
-  console.log(req.headers);
   projet.find()
   .then((product)=>{
 res.status(200).json(product);})
@@ -71,6 +70,18 @@ res.status(200).json(product);})
          
       
   });
+  exports.getallprojet1 = ((req,res,next)=>{
+    console.log(req.headers);
+    projet.find()
+    .then((product)=>{
+  res.status(200).json(product);})
+  .catch((error)=>{
+    console.log(error);
+  })
+  
+           
+        
+    });
   exports.getoneprojet =(req,res,next)=>{
     projet.findById({_id:req.params.id})
     .then((projet)=>{
@@ -80,4 +91,44 @@ res.status(200).json(product);})
       console.log(error);
       
     })
+  };
+  exports.getoneprojet1 =(req,res,next)=>{
+    projet.findById({_id:req.params.id})
+    .then((projet)=>{
+      res.status(200).json(projet)
+    })
+    .catch((error)=>{
+      console.log(error);
+      
+    })
+  };
+  exports.modify=(req,res)=>{
+    const X = new projet({
+      _id:req.params.id,
+      etat:"Validé",
+     new:true ,
+      ...req.body
+  });
+  projet.updateOne({_id:req.params.id},X)
+  .then(()=>{
+    res.status(201).json({message:'Projet modifier'})
+  })
+  .catch((error)=>{
+    console.log(error);
+  })
+  };
+  exports.modify1=(req,res)=>{
+    const X = new projet({
+      _id:req.params.id,
+      etat:"Refusé",
+     new:true ,
+      ...req.body
+  });
+  projet.updateOne({_id:req.params.id},X)
+  .then(()=>{
+    res.status(201).json({message:'Projet modifier'})
+  })
+  .catch((error)=>{
+    console.log(error);
+  })
   };
