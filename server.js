@@ -3,8 +3,9 @@ const mongoose = require ('mongoose');
 const userrouter = require('./routes/utilisateur')
 const adminrouter = require('./routes/admin')
 const projetrouter = require('./routes/projet')
-const user = require('./models/utilisateur')
 const bodyparser= require('body-parser')
+const nodemailer = require('nodemailer');
+
 const path = require('path');
 const app = express() ;
 const port = 3004 ;
@@ -29,6 +30,14 @@ mongoose.connect(db_url)
 .catch((err)=>{
   console.log(err);
 });
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'sydneydossou400@gmail.com',
+    pass: 'zacgrczjeqzkwbde',
+  },
+});
+
 app.use(express.urlencoded({extended :true}));
 app.use(bodyparser.json());
 app.use('/images', express.static(path.join(__dirname, 'images')));

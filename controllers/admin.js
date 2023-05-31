@@ -41,7 +41,7 @@ exports.login= (req,res,next)=>{
             token:jwt.sign(
                 {userId:admin._id},
                 'ADMIN_TOKEN_SECRET',
-                { expiresIn: '1h' }
+                { expiresIn: '12h' }
             )
         });
     })

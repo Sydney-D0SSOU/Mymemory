@@ -18,13 +18,15 @@ exports.signup =(req,res,next)=>{
             res.status(200).json({message:'COMPTE CREER AVEC SUCCES'})
         })
             .catch((error)=>{
-                res.status(200).json({message:'Votre compte n´a pas été créer veiller ce mail existe déja'})    
+                res.status(200).json({message:'Votre compte n´a pas été créer, ce mail existe déja '})    
 console.log(error);
 });
 })  
 
     .catch((error)=>{
     res.status(500).json({error})
+    res.status(500).json({message:'Notre site est en maitenance veillez  recommencez un peu plus tard '})    
+
 })
 } ;
 exports.login= (req,res,next)=>{
@@ -39,11 +41,12 @@ exports.login= (req,res,next)=>{
             return res.status(401).json({error:'mot de passe incorrect'})
         }
         res.status(200).json({
+            message:'Authentification avec succes',
             userId:utilisateur._id,
             token:jwt.sign(
                 {userId:utilisateur._id},
                 'RANDOM_TOKEN_SECRET',
-                { expiresIn: '1h' }
+                { expiresIn: '12h' }
             )
         });
     })

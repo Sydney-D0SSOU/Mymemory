@@ -16,6 +16,7 @@ const projetSchema = mongoose.Schema({
     risque:{type:String,required:true},
     chiffrea :{type:Number,required:true},
     utilisateurId: {type:String,required:true },
+    emailUtilisateur : {type:String,required:true },
     createdAt: {
         type: String ,
       required :true

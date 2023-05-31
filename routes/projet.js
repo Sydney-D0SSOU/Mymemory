@@ -13,8 +13,8 @@ router.get ('/oneuser/:id',projetCtrl.getoneprojet);
 router.get ('/one/:id',auth,projetCtrl.getoneprojet);
 
 router.get ('/one1/:id',projetCtrl.getoneprojet1);
-router.put('/modify/:id',projetCtrl.modify);
-router.put('/modify1/:id',projetCtrl.modify1)
+router.put('/modify/:id',adauth,projetCtrl.modify);
+router.put('/modify1/:id',adauth,projetCtrl.modify1)
 
 
 module.exports=router;
