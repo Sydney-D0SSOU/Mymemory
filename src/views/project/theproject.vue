@@ -1,6 +1,6 @@
 <template>
 
-  <tete/>
+  <tete :isAuthenticated="isAuthenticated"  @deconnect="handleLogout"/>
   <div class="discover-page" data-path="/financer-projets">
     <section class="filters white">
     <div class="background-full-color flex-container text-center">
@@ -8,7 +8,7 @@
             <h2 class="text-light"><p>DÉCOUVREZ DES PROJETS INNOVANTS ET </p>
               À FORT IMPACT SOCIAL </h2>
         </div>
-    </div>
+    </div>rw
     </section>
     </div>
   
@@ -31,7 +31,29 @@ export default {
     navbar,
     tete,
     pied
+  },
+  data(){
+return{
+  isAuthenticated : false
+}
+  },
+  mounted() {
+        const token = localStorage.getItem("Montoken")
+
+  if (token) {
+    this.isAuthenticated = true;
   }
+}, 
+ methods:{
+  handleLogout(){
+        // Logique de déconnexion
+      // Mettez à jour isAuthenticated à false et effectuez d'autres tâches nécessaires (par exemple, supprimez le token, redirigez l'utilisateur, etc.)
+      this.isAuthenticated = false;
+      localStorage.removeItem('Montoken');
+      location.reload() // Supprimez le token du localStorage ou du cookie sécurisé
+
+}
+ }
 }
   
 

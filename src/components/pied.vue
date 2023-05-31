@@ -1,6 +1,6 @@
 <template>
     <!-- Footer -->
-    <MDBFooter bg="dark" :text="['center', 'white']">
+    <MDBFooter class=".bg-dark.bg-gradient" bg="secondary" :text="['center', 'white']">
       <!-- Grid container -->
       <MDBContainer class="p-4">
         <!-- Section: Social media -->
@@ -76,7 +76,7 @@
               <!--Grid column-->
               <MDBCol auto>
                 <!-- Submit button -->
-                <MDBBtn outline="light" class="mb-4"> Rejoindre </MDBBtn>
+
               </MDBCol>
               <!--Grid column-->
             </MDBRow>
@@ -180,7 +180,7 @@
       <!-- Copyright -->
       <div
         class="text-center p-3"
-        style="background-color: rgba(0, 0, 0, 0.2)"
+        style="background-color: rgba(164, 169, 174, 0.2)"
       >
         © 2023 Copyright:
         <a class="text-white" href="https://mdbootstrap.com/"
@@ -191,7 +191,7 @@
     </MDBFooter>
     <!-- Footer -->
   </template>
-  <script setup lang="ts">
+  <script>
   import {
     MDBFooter,
     MDBContainer,
@@ -200,4 +200,15 @@
     MDBIcon,
     MDBBtn
   } from 'mdb-vue-ui-kit';
+  export default{
+   
+    components:{
+      MDBFooter,
+    MDBContainer,
+    MDBRow,
+    MDBCol,
+    MDBIcon,
+    MDBBtn
+    }}
+    
 </script>

@@ -1,6 +1,5 @@
 <template>
-    <tete/>
-    
+<tete   @deconnect="handleLogout" :isAuthenticated="isAuthenticated"/>    
   <div class="discover-page" data-path="/financer-projets">
     
     <section class="filters white">
@@ -11,24 +10,54 @@
     </div>
     </section>
   </div>
-  <div id="r">
-    
-    <p class="mt-5 text-center fs-3" > Félicitations pour votre projet !!! </p>
+  <div id="">
+      <p class="mt-2 text-center fs-3" > Félicitations pour votre projet !!! </p>
        <p class="mt-3 text-center  fs-4" > Pour que vous puissiez présenter votre projet à un analyste d'affaires, vous devez fournir les informations suivantes 👇:  </p>
+  
+       <div id="">
+    
+
 
   
        
   <projectform/>
 </div>
-
+</div>
 </template>
 
-<script setup lang="ts">
+<script >
 
 import projectform from "../../components/projectform.vue"; 
 
 import tete from "../../components/tete.vue"; 
-import carousel from "../../components/carousel.vue"
+export default{
+    components:{
+        projectform,
+        tete
+    },
+    data(){
+        return{
+            isAuthenticated: false
+            
+        }
+    },
+    mounted() {
+        const token = localStorage.getItem("Montoken")
+
+  if (token) {
+    this.isAuthenticated = true;
+  }
+}, 
+methods:{
+handleLogout(){
+        // Logique de déconnexion
+      // Mettez à jour isAuthenticated à false et effectuez d'autres tâches nécessaires (par exemple, supprimez le token, redirigez l'utilisateur, etc.)
+      this.isAuthenticated = false;
+      localStorage.removeItem("Montoken"); // Supprimez le token du localStorage ou du cookie sécurisé
+
+},
+}
+}
 </script>
 
 <style>
@@ -51,6 +80,9 @@ height: 30px ;
 #r{
     background-image:url('') ;
 height:auto ;
-background-color: rgb();
+background-color:  #d3d7d8f0;
+}
+#t{
+    background-color: #b6d0dbf0;
 }
 </style>

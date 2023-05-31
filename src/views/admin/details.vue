@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div  class="  col-2">
+    <div  class="col-2">
     <sidebar id="t"/>
     
 </div>
@@ -10,7 +10,7 @@
       <div class="container">
     <div class="row">
       <div class="col" id="r">
-        <img :src="post.files" alt="Image de la page" id="p1" class="img-fluid">
+        <img :src="post.files" alt="Image de la page" id="p1" class="img-fluid"/>
       </div>
       <div class="col-md-6">
         <h1>{{ post.titre }}</h1>
@@ -49,6 +49,16 @@
         <div class="mb-3">
           <strong> Risques et solutions   : </strong> {{ post.risque }}
         </div>
+        <div class="mb-3">
+          <strong> Soumis le   : </strong> {{ post.createdAt }}
+        </div>
+        <div class="mb-3">
+          <strong> Etat   : </strong> {{ post.etat }}
+        </div>
+        <div class="mt-5">
+          <button type="button" class="btn btn-success" @click="Updatepro">VALIDER</button>
+          <button type="button" class="btn btn-danger" @click="Updatepro1">REFUSER</button>
+        </div>
         <!-- Ajoutez ici d'autres informations sur la page -->
       </div>
     </div>
@@ -64,6 +74,7 @@
 
 <script>
 import sidebar from '../../components/sidebar.vue';
+import axios from 'axios' ;
 export default {
   components :{
     sidebar
@@ -71,6 +82,7 @@ export default {
   data() {
     return {
       post: null,
+      etatpro: ""
     };
   },
   mounted() {
@@ -79,9 +91,9 @@ export default {
   methods: {
     async fetchUser() {
       try {
-        const token = localStorage.getItem("Mon token") ;
+        const token = localStorage.getItem("admintoken") ;
         const postId = this.$route.params.id;
-        const response = await fetch(`http://localhost:3004/pro/one/${postId}`,
+        const response = await fetch(`http://localhost:3004/pro/one1/${postId}`,
         
         {
    headers: {
@@ -91,9 +103,54 @@ export default {
         const data = await response.json();
         this.post = data;
       } catch (error) {
-        console.error(error);
+        console(error);
       }
     },
+    async Updatepro(){
+      try {
+        const postId = this.$route.params.id;
+        const token = localStorage.getItem("admintoken") ;
+
+    const response = await axios.put(`http://localhost:3004/pro/modify/${postId}`,null,
+    {
+   headers: {
+     Authorization: `Bearer ${token}`,
+   },
+  });
+    console.log("Statut du projet mis à jour avec succès !");
+    alert('projet validé')
+    location.reload()
+    this.$router.push(`/details/${postId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Erreur lors de la mise à jour du statut du projet :", error);
+     
+  }
+
+    },
+    async Updatepro1(){
+      try {
+        const token = localStorage.getItem("admintoken") ;
+
+        const postId = this.$route.params.id;
+    const response = await axios.put(`http://localhost:3004/pro/modify1/${postId}`,null,
+    {
+   headers: {
+     Authorization: `Bearer ${token}`,
+   },
+  });
+    console.log("Statut du projet mis à jour avec succès !");
+    alert('Projet Refusé')
+    location.reload()
+    this.$router.push(`/details/${postId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Erreur lors de la mise à jour du statut du projet :", error);
+     
+  }
+
+    }
+   
   },
 };
 </script>
@@ -103,9 +160,11 @@ export default {
   margin-top: 50px;
 }
 #p1{
-  height:100% ;
+  height: 100% ;
+  width: 100% ;
 }
 #r{
-  height:90vh ;
+  border:0px solid 
+  rgb(30, 33, 44)  ;
 }
 </style>

@@ -1,37 +1,39 @@
     <template>
       <tete/>
-      <section class="vh-100" style="background-color:grey ;">
+      <section class="" style="background-color:rgb(167, 164, 164) ;heigth:100% ">
   <div class="container py-3  h-200">
-    <div class="row d-flex justify-content-center align-items-center h-400">
+    <div class="row d-flex justify-content-center  h-400">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card shadow-9-strong" style=" ">
-          <div class="card-body p-5 text-center">
+          <div class="card-body p-5">
 <form @submit.prevent="submitForm">
-            <h3 class="mb-5">S´inscrire </h3>
+            <h3 class="mb-5 text-center"> Rejoignez-nous sur KOUÈ-MÌTÒN ! </h3>
 
-            <div class="form-outline mb-4">
-              <input type="text" id="typePasswordX-2" v-model="nom" class="form-control form-control-lg" />
+            <div class=" mb-4 a">
               <label class="form-label" for="typePasswordX-2">Nom</label>
+
+              <input type="text" id="typePasswordX-2" v-model="nom" class="form-control form-control-lg" />
             </div>
 
-            <div class="form-outline mb-4">
-              <input type="text" id="typePasswordX-2" v-model="prenom" class="form-control form-control-lg" />
+            <div class=" mb-4">
               <label class="form-label" for="typePasswordX-2">Prénom </label>
+
+              <input type="text" id="typePasswordX-2" v-model="prenom" class="form-control form-control-lg" />
             </div>
-            <div class="form-outline mb-4">
-              <input type="date" id="typePasswordX-2" v-model="datenaiss" class="form-control form-control-lg" />
+            <div class=" mb-4">
               <label class="form-label" for="typePasswordX-2"> Date de naissance  </label>
+           <input type="date" id="typePasswordX-2" v-model="datenaiss" class="form-control form-control-lg" />
             </div>
 
-            <div class="form-outline mb-4">
-              <input type="email" id="typeEmailX-2" v-model="email" class="form-control form-control-lg" />
+            <div class=" mb-4">
               <label class="form-label" for="typeEmailX-2">Email</label>
+              <input type="email" id="typeEmailX-2" v-model="email" class="form-control form-control-lg" />
             </div>
 
 
-            <div class="form-outline mb-4">
-              <input type="password" id="typePasswordX-2" v-model="password" class="form-control form-control-lg" />
+            <div class=" mb-4">
               <label class="form-label" for="typePasswordX-2">Mot de passe</label>
+              <input type="password" id="typePasswordX-2" v-model="password" class="form-control form-control-lg" />
             </div>
 
             <!-- Checkbox -->
@@ -44,11 +46,7 @@
 </form>
             <hr class="my-4">
 
-            <button class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;"
-              type="submit"><i class="fab fa-google me-2"></i> S´inscrire avec  google</button>
-            <button class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;"
-              type="submit"><i class="fab fa-facebook-f me-2"></i>S´inscrire avec facebook </button>
-
+           
           </div>
         </div>
       </div>
@@ -61,6 +59,9 @@
 import axios from 'axios' ;
 import tete from '../../components/tete.vue' ;
 export default{
+  components:{
+tete
+  },
   data () {
     return{
 nom:'',
@@ -82,12 +83,13 @@ password:''
       })
       .then(response => {
         console.log(response.data);
-        alert('Inscription validé !');
+        alert(response.data.message);
+
         this.$router.push('/login')
       })
       .catch(error => {
         console.log(error);
-        alert('Inscriptionp !');
+        alert('Désolé ce mail existe/mot de passe existe déjà');
       });
     }
 

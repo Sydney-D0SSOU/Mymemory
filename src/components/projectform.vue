@@ -3,7 +3,7 @@
     <form @submit.prevent="submitForm">
      
 <center>
-      <div class="form-group" id="custom" >
+      <div class="form-group shadow-lg" id="custom" >
         
         <fieldset>
           <center>
@@ -12,7 +12,7 @@
     <MDBRow class="">
     
 
-      <MDBCol sm="" class="ms-5 mt-40 ">
+      <MDBCol sm="" class="mx-5 mt-40 ">
         <label class="fs-5 mt-5 mb-3  " >Donnez un titre à votre projet </label> 
         <MDBInput 
         label="Intitulé du projet"
@@ -25,7 +25,7 @@
 <MDBRow class="">
     
 
-      <MDBCol sm="" class="ms-5 mt-40 ">
+      <MDBCol sm="" class="mx-5 mt-40 ">
         <label class="fs-5 mt-5 mb-4 text " > Quels sont les objectifs de  votre projet ? (Soyez précis et conçis) </label>
 
         <MDBTextarea
@@ -41,7 +41,7 @@
   </MDBRow>
     
 
- <MDBRow class="ms-5 ">
+ <MDBRow class="mx-5 ">
      
      
   <MDBCol  class="fs-5  ">
@@ -73,7 +73,7 @@
   <MDBRow class="">
     
 
-      <MDBCol  class="ms-5 mt-40 ">
+      <MDBCol  class="mx-5 mt-40 ">
         <label class="fs-5 mt-5 mb-3  " >Décrivez votre produit ou service  </label>
 
         <MDBTextarea 
@@ -87,7 +87,7 @@
   <MDBRow class="">
     
 
-      <MDBCol  class="ms-5 mt-40 ">
+      <MDBCol  class="mx-5 mt-40 ">
         <label class="fs-5 mt-5 mb-3 text-center " for="images">Joindre une image ou affiche qui illustre au mieux votre projet   </label>
 
         <MDBFile class="form-control" name="images"   ref="fileInput" @change="handleFileInputChange" />
@@ -97,7 +97,7 @@
  
   <MDBRow class="">
     
-      <MDBCol sm="" class="ms-5 mt-40 ">
+      <MDBCol sm="" class="mx-5 mt-40 ">
         <label class="fs-5 mt-5 mb-3  " > Décrivez votre marché cible  ? </label>
 
         <MDBTextarea
@@ -115,7 +115,7 @@
   
    <label class="fs-5 mt-5 mb-3 " > Enummérez les partenaires  de votre projet (si vous en avez) ?  </label>
 
-      <MDBCol sm="" class="ms-5 mt-40 ">
+      <MDBCol sm="" class="mx-5 mt-40 ">
         <MDBTextarea
         type="textarea"
         label="Partenaires"
@@ -129,7 +129,7 @@
   <MDBRow class="">
     
     
-      <MDBCol  class="ms-5 mt-40 ">
+      <MDBCol  class="mx-5 mt-40 ">
         <label class="fs-5 mt-5 mb-3  " > 
         <p> Quelles sont les entreprises que vous considérez directement  comme étant vos concurrents immédiats ? </p>
 </label>
@@ -147,7 +147,7 @@
     
    
 
-      <MDBCol  class="ms-5 mt-40 ">
+      <MDBCol  class="mx-5 mt-40 ">
         <label class="fs-5 mt-5 mb-3 text-center " > 
    <p> Estimez leur part du marché et leur stratégie pour y arriver ?   </p> 
  
@@ -164,7 +164,7 @@
   <MDBRow class="">
 
 
-      <MDBCol  class="ms-5 mt-40 ">
+      <MDBCol  class="mx-5 mt-40 ">
         <label class="fs-5 mt-5 mb-3  " > 
    <p> Quelle est la stratégie que vous pensez mettre en pour prendre une  part de ce marché ? </p>
  
@@ -181,7 +181,7 @@
   <MDBRow class="">
 
    
- <MDBRow class="ms-4">
+ <MDBRow class="  ">
   <label class="fs-5 mt-5 mb-3  " > 
    <p> Quel sera votre modèle économique ? </p>
    </label>
@@ -211,7 +211,7 @@
       label=" Vente directe"
       name=" vente directe"
       v-model="modeleco"
-      value="Modele de vente directe"
+      value="Modèle de vente directe"
      
     />
       </MDBCol>
@@ -220,7 +220,7 @@
       label="Abonnement"
       name="Abonnement"
       v-model="modeleco"
-      value="Modèle d´abonnement"
+      value="Modèle de d´Abonnement"
      
       
       wrapperClass="mb-3"
@@ -231,7 +231,7 @@
       label="Commissionnement "
       name=" Commissionnement"
       v-model="modeleco"
-      value="Modèle de commissionnement3"
+      value="Modèle de Commissionnement"
      
       invalidFeedback="More example invalid feedback text"
       wrapperClass="mb-3"
@@ -242,7 +242,7 @@
  
   <MDBRow class="">
 
-      <MDBCol sm="" class="ms-5 mt-40 ">
+      <MDBCol sm="" class="mx-5 mt-40 ">
         <label class="fs-5 mt-5 mb-3 text-center " > À combien estimez-vous le côut de lancement de votre projet ? (En FCFA)   </label>
 
         <input type="text" v-model="cout" class="form-control "  />
@@ -251,7 +251,7 @@
   </MDBRow>
   <MDBRow class="">
 
-      <MDBCol sm="" class=" mt-40 ">
+      <MDBCol sm="" class="mx-5 mt-40 ">
         <label class="fs-5 mt-5 mb-3  " > Quel chiffre d´affaire pensez-vous faire  d´ici 1an ?   </label>
 
         <input type="text" v-model="chiffrea" class="form-control" />
@@ -260,13 +260,13 @@
   </MDBRow>
   <MDBRow class="">
    
-      <MDBCol sm="" class=" mt-40 ">
+      <MDBCol sm="" class="mx-5 mt-40 ">
         <label class="fs-5 mt-5 mb-2  " > Quels sont les risques liés à la mise en ouevre de votre projet
      et comment pensez-vous  y remédier  ?  </label>
 
         <MDBTextarea
         type="textarea"
-        label=""
+        label="Risques et approches de  Solutions  "
         id="form11Name2"
         v-model="risque"
       />
@@ -344,12 +344,12 @@ MDBContainer,
   },
   methods: {
    submitForm(){
-    const token = localStorage.getItem("Mon token") ;
+    const token = localStorage.getItem("Montoken") ;
 
     const formData = new FormData();
       formData.append("titre", this.titre);
       formData.append("objectifs", this.objectifs);
-      formData.append("business", this.business);
+      formData.append("business", this.business); 
       formData.append("descriptionb", this.descriptionb);
       formData.append("images", this.images);
       formData.append("cible", this.cible);

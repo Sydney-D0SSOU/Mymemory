@@ -1,48 +1,59 @@
 <template>
- 
-    <sidebar/>
- 
-   
-    
-<section class="vh-100" style="background-color:rgb(212, 236, 245) ; height:100% ;" >
-<div class="container py-5  h-200">
- <div class="row d-flex justify-content-center align-items-center h-400">
-   <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-     <div class="card shadow-9-strong" style=" ">
-       <div class="card-body p-5 text-center">
-         <form @submit.prevent="submitForm">
-         <h3 class="mb-5">Se connecter</h3>
+  <section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form @submit.prevent="submitForm">
+          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+            <p class="lead fw-normal mb- me-  ">
+              BIENVENUE L´ADMINISTRATION DE KOUÈ-MÍTON 😉</p>
 
-         <div class=" mb-4">
-          <label class="form-label" for="typeEmailX-2">Email</label>
-          <input type="email" id="typeEmailX-2"   v-model="email" class="form-control form-control-lg" />
-         </div>
+          </div>
 
-         <div class="mb-4">
-          <label class="form-label" for="typePasswordX-2">Mot de passe</label>
-          <input type="password" id="typePasswordX-2" class="form-control form-control-lg"  v-model="password" />
-         </div>
+          <div class="divider d-flex align-items-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0">Authentification</p>
+          </div>
 
-         <!-- Checkbox -->
-         <div class="form-check d-flex justify-content-start mb-4">
-           <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
-           <label class="form-check-label" for="form1Example3"> Se souvenir de son mot de passe</label>
-         </div>
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" id="form3Example3" class="form-control form-control-lg"
+              placeholder="Enter a valid email address" v-model="email" />
+            <label class="form-label" for="form3Example3">Email address</label>
+          </div>
 
-         <button class="btn btn-primary btn-lg btn-block" type="submit">connexion</button>
-         </form>
-         <hr class="my-4">
+          <!-- Password input -->
+          <div class="form-outline mb-3">
+            <input type="password" id="form3Example4" class="form-control form-control-lg"
+              placeholder="Enter password" v-model="password" />
+            <label class="form-label" for="form3Example4">Mot de passe</label>
+          </div>
 
-         <button class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;"
-           type="submit"><i class="fab fa-google me-2"></i> Se connecter avec  google</button>
-         <button class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;"
-           type="submit"><i class="fab fa-facebook-f me-2"></i>Se connecter avec facebook </button>
+          <div class="d-flex justify-content-between align-items-center">
+            <!-- Checkbox -->
+            <div class="form-check mb-0">
+              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+              <label class="form-check-label" for="form2Example3">
+                Se souvenir de moi
+              </label>
+            </div>
+          </div>
 
-       </div>
-     </div>
-   </div>
- </div>
-</div>
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button type="submit" class="btn btn-success btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">Connexion</button>
+            <p class="small fw-bold mt-2 pt-1 mb-0"> Vous n´avez pas de compte ? <a href="#!"
+                class="link-danger"> Veillez-vous rapprochez du Responsable </a></p>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
 </section>
 </template>
 
@@ -63,7 +74,7 @@ password:''
 methods:{
  submitForm(){
   
-   axios.post('http://localhost:3004/auth/login',{
+   axios.post('http://localhost:3004/auth1/login',{
     
      email :this.email,
      password:this.password
@@ -71,7 +82,7 @@ methods:{
    .then(response => {
     alert('Authentification avec succès !');
      console.log(response.data.token);
-     localStorage.setItem("Mon token",response.data.token)
+     localStorage.setItem("admintoken",response.data.token)
      this.$router.push('/admin')
    })
    .catch(error => {
@@ -86,5 +97,19 @@ methods:{
 </script>
 
 <style>
-
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}
 </style>

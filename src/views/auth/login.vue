@@ -1,15 +1,15 @@
 <template>
  
-    <tete/>
+    <tete  @deconnect="handleLogout" :isAuthenticated="isAuthenticated"/>
  
-  <section class="vh-100" style="background-color:grey ;">
+  <section class="vh-100" style="background-color:rgb(186, 183, 183) ;">
   <div class="container py-5  h-200">
     <div class="row d-flex justify-content-center align-items-center h-400">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card shadow-9-strong" style=" ">
-          <div class="card-body p-5 text-center">
+          <div class="card-body p-5 ">
             <form @submit.prevent="submitForm">
-            <h3 class="mb-5">Se connecter</h3>
+            <h3 class="mb-5" >Se connecter</h3>
 
             <div class=" mb-4">
               <label class="form-label" >Email</label>
@@ -31,10 +31,7 @@
             </form>
             <hr class="my-4">
 
-            <button class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;"
-              type="submit"><i class="fab fa-google me-2"></i> Se connecter avec  google</button>
-            <button class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;"
-              type="submit"><i class="fab fa-facebook-f me-2"></i>Se connecter avec facebook </button>
+           
 
           </div>
         </div>
@@ -48,33 +45,59 @@
 import axios from 'axios';
 import tete from "../../components/tete.vue";
 export default{
+  components:{
+    tete
+
+  },
   data () {
     return{
 email:'',
-password:''
-
+password:'',
+isAuthenticated : false
     }
   },
   methods:{
+
     submitForm(){
+
       axios.post('http://localhost:3004/auth/login',{
        
         email :this.email,
-        password:this.password
+        password:this.password,
       })
       .then(response => {
-        alert('Authentification avec succès !');
+        // Après une authentification réussie
+        localStorage.setItem('isAuthenticated', true);
+
+        alert(response.data.message);
         console.log(response.data);
-     console.log(response.data.token);
-     localStorage.setItem("Mon token",response.data.token)
-        this.$router.push('/myproject')
+     localStorage.setItem("Montoken",response.data.token)
+this.$router.push('/myproject')
       })
       .catch(error => {
-        alert('Identifiants incorrect!');
+        alert('identifiants incorrect');
         console.log(error);
       });
-    }
+      
+  
+    },
+    created() {
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
+    this.isAuthenticated = isAuthenticated === 'true'; // Convertir en booléen
+  },
+ beforeMount() {
+  const token = localStorage.getItem('token');
+  if (token) {
+    this.isAuthenticated = true;
+  }
+},
+handleLogout(){
+        // Logique de déconnexion
+      // Mettez à jour isAuthenticated à false et effectuez d'autres tâches nécessaires (par exemple, supprimez le token, redirigez l'utilisateur, etc.)
+      this.isAuthenticated = false;
+      localStorage.removeItem('Montoken'); // Supprimez le token du localStorage ou du cookie sécurisé
 
+}
   }
 }
 </script>

@@ -6,7 +6,7 @@
 </div>
     <div class=" col-10 ">
       
-      <ckeck/> 
+      <adtable/> 
   
      </div> 
      </div>
@@ -14,11 +14,11 @@
   
   <script>
   import sidebar from '../../components/sidebar.vue';
-  import ckeck from "../../components/ckeck.vue";
+  import adtable from "../../components/table.vue";
   import tete from "../../components/tete.vue"
   export default {
     components:{
-      ckeck,
+      adtable,
       sidebar,
       tete,
     }

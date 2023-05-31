@@ -37,7 +37,7 @@
   </template>
   
   <script>
-  import check from '../../components/ckeck.vue';
+  import check from '../../components/table.vue';
   import navbar from '../../components/navbar.vue';
   import btnsup1 from '../../components/btnsup1.vue';
   

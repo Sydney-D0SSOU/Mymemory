@@ -1,35 +1,6 @@
 <template>
   <header>
-    <!-- Navbar -->
-    <MDBNavbar expand="lg" light bg="white" container classe="fixed-top">
-      <MDBNavbarToggler target="#navbarExample01"></MDBNavbarToggler>
-      <MDBNavbarNav collapse="navbarExample01" class="mb-3 mt-2 mb-lg-0">
-        
-       
-        <router-link to="/">
-        <MDBNavbarItem  class="fs-3" to="/">
-            KOUÈ-MÌTÒN
-        </MDBNavbarItem>
-        </router-link>
-        <MDBNavbarItem class="fs-5 mt-2" to="/theproject">
-          Projet à financer 
-        </MDBNavbarItem>
-        <MDBNavbarItem class="fs-5 mt-2" to="#">
-          Comment ça marche ?
-        </MDBNavbarItem>
-      
-      </MDBNavbarNav>
-      <div class="justify-content-rigth">
-        <router-link to="/login">
-
-        <MDBBtn outline="black" class="btn-lg">Se connecter</MDBBtn>
-        </router-link>
-        <router-link to="/signup">
-
-  <MDBBtn color="black" class="btn-lg">S'inscrire</MDBBtn>
-        </router-link>
-        </div>
-    </MDBNavbar>
+   <tete @deconnect="handleLogout" :isAuthenticated="isAuthenticated" />
   
     <!-- Navbar -->
     <!-- Background image -->
@@ -62,9 +33,9 @@
   <MDBContainer>
     <MDBRow>
     <MDBCol>   <card/>  </MDBCol>
-  <MDBCol> <card /> </MDBCol>
-  <MDBCol> <card1/> </MDBCol>
-  <MDBCol> <card1/> </MDBCol>
+  <MDBCol> <card1 /> </MDBCol>
+  <MDBCol> <card2/> </MDBCol>
+  <MDBCol> <card3/> </MDBCol>
      
  </MDBRow>
  <center>
@@ -152,12 +123,14 @@
     MDBRow,
 MDBContainer
   } from 'mdb-vue-ui-kit';
- 
+ import card2 from '../components/card2.vue';
+ import card3 from './card3.vue';
   import card from "../components/card.vue";
   import card1 from "../components/card1.vue";
   import btn from "../components/btn.vue";
   import pied from "../components/pied.vue";
   import login from "../views/auth/login.vue" ;
+  import tete from './tete.vue';
   export default {
     components:{
       MDBNavbar,
@@ -170,12 +143,38 @@ MDBContainer
 MDBContainer,
 card,
 card1,
+card2,
+card3,
 btn,
 pied,
-login
+login,
+tete
 
     },
+  data(){
+    return{
+      isAuthenticated: false
+
+    }
+  },
+  mounted() {
+        const token = localStorage.getItem("Montoken")
+
+  if (token) {
+    this.isAuthenticated = true;
+  }
+}, 
+
+
+
     methods:{
+      handleLogout(){
+        // Logique de déconnexion
+      // Mettez à jour isAuthenticated à false et effectuez d'autres tâches nécessaires (par exemple, supprimez le token, redirigez l'utilisateur, etc.)
+      this.isAuthenticated = false;
+      localStorage.removeItem("Montoken"); // Supprimez le token du localStorage ou du cookie sécurisé
+
+},
       changer() {
         this.$router.push('/myproject')
       },

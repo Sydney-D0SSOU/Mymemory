@@ -2,9 +2,7 @@
     <div class="sidebar">
       <ul class="sidebar-menu">
         <li class="sidebar-header">KOUÈ-MÌTÓN</li>
-        <li><a href="#"><i class="fas fa-tachometer-alt"></i> Tableau de bord</a></li>
         <li><a href="#/login1" to="/login"><i class="fas fa-users"></i> S´authentifier</a></li>
-        <li><a href="#"><i class="fas fa-cog"></i> Paramètres</a></li>
         <li class="sidebar-header">Projets</li>
         <li><a href="#/admin"><i class="fas fa-list"></i> Liste des projets</a></li>
         <li><a href="#"><i class="fas fa-plus"></i> Ajouter un projet</a></li>
@@ -22,7 +20,7 @@
     top: 0;
     left: 0;
     bottom: 0;
-    background-color: #4e94d4;
+    background-color: #7a7979;
     color: #fff;
   }
   
@@ -33,7 +31,7 @@
   }
   
   .sidebar-header {
-    background-color: #3687c8;
+    background-color: rgb(179, 177, 176);
     padding: 10px;
     font-weight: bold;
   }
@@ -44,7 +42,7 @@
   
   .sidebar-menu li a {
     text-decoration: none;
-    color: #fff;
+    color: #fcf9f9;
     display: flex;
     align-items: center;
   }
@@ -54,11 +52,11 @@
   }
   
   .sidebar-menu li:hover {
-    background-color: #3687c8;
+    background-color:rgb(225, 229, 233);
   }
   
   .sidebar-menu li:hover a {
-    color: #fff;
+    color: #b6acac;
   }
   </style>
   

@@ -7,7 +7,7 @@
         <div class="container">
       <div class="row">
         <div class="col" id="r">
-          <img :src="post.files" alt="Image de la page" id="p1" class="img-fluid">
+          <img :src="post.files" alt="Image de la page" id="p1" class="img-fluid"/>
         </div>
         <div class="col-md-6">
           <h1>{{ post.titre }}</h1>
