@@ -128,6 +128,7 @@ res.status(200).json(product);})
       const one = await  projet.findById({_id:req.params.id}).exec()
       const emailUtilisateur = one.emailUtilisateur
       const titre = one.titre
+      const datei = one.createdAt
       const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -140,7 +141,15 @@ res.status(200).json(product);})
         from: 'sydneydossou400@gmail.com',
         to: emailUtilisateur,
         subject: 'Décision de kouè-mìton',
-        text: 'Votre projet  a été validé et sera publier afin d´attirer des investisseurs et pour une campagne de collecte de fonds' 
+        text: 'Votre projet  a été validé et sera publier afin d´attirer des investisseurs et pour une campagne de collecte de fonds' ,
+        html: `<!doctype html>
+        <html ⚡4email>
+         
+          <body>
+        Votre projet :   "${titre}" soumis le : "${datei}" <b text-color="red"> Vient d´être  valider pour une campagne de collecte de fonds,retrouver la  au niveau de la liste des projet à financer sur notre plateforme .  </b> . Kouè-Mìtòn vous remercie pour votre contribution </p>
+         
+           </body> 
+        </html>`
       };
   
       const emailResult = await transporter.sendMail(mailOptions);
@@ -170,7 +179,7 @@ res.status(200).json(product);})
       const emailUtilisateur = one.emailUtilisateur
       const titre = one.titre
       const img = one.files
-      const date = one.createdAt
+      const datei = one.createdAt
       const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -188,7 +197,7 @@ res.status(200).json(product);})
         <html ⚡4email>
          
           <body>
-        Votre projet :   "${titre}" soumis le : "${date}" <b text-color="red"> n´est pas valide pour une campagne de collecte de fonds </b> .</p>
+        Votre projet :   "${titre}" soumis le : "${datei}" <b text-color="red"> n´est pas valide pour une campagne de collecte de fonds </b> .  Kouè-Mìtòn vous remercie pour votre contribution</p>
          
            </body> 
         </html>`
