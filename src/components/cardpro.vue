@@ -28,7 +28,7 @@
   </div>
  </div>
  <div v-else>
-      <h3>Veillez vous connectez pour voir  les projets du  moment !!!!</h3>
+      En attente ...... si ça dure veillez vous déconnectez   !!!!
     </div>
   
   </template> 

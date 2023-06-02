@@ -14,7 +14,7 @@
       <div class="mask" style="background-color: rgba(113, 106, 106, 0.37);">
         <div class="d-flex justify-content-center align-items-center h-100">
           <div class="text-white">
-            <h1 class="mb-3">Faisons vivre les projets créatifs.</h1>
+            <h1 class="mb-3">Faisons vivre les projets créatifs</h1>
             <button type="button" class="btn btn-light btn-lg btn-shadow-lg " @click="changer">Proposer un projet</button>
 
             <button type="button" class="btn btn-dark btn-lg ms-2 btn-shadow-lg" @click="a">Découvrir les projets</button>

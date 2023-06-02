@@ -10,7 +10,7 @@
         <form @submit.prevent="submitForm">
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <p class="lead fw-normal mb- me-  ">
-              BIENVENUE L´ADMINISTRATION DE KOUÈ-MÍTON 😉</p>
+              BIENVENUE L´ADMINISTRATION DE KOUÈ-MÍTON </p>
 
           </div>
 

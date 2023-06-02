@@ -20,7 +20,7 @@
     top: 0;
     left: 0;
     bottom: 0;
-    background-color: #7a7979;
+    background-color: #683e25;
     color: #fff;
   }
   
@@ -31,7 +31,7 @@
   }
   
   .sidebar-header {
-    background-color: rgb(179, 177, 176);
+    background-color: rgb(176, 118, 90);
     padding: 10px;
     font-weight: bold;
   }
@@ -52,11 +52,11 @@
   }
   
   .sidebar-menu li:hover {
-    background-color:rgb(225, 229, 233);
+    background-color:rgb(34, 27, 20);
   }
   
   .sidebar-menu li:hover a {
-    color: #b6acac;
+    color: #ffffff;
   }
   </style>
   

@@ -1,72 +1,42 @@
 <template>
-    <div class="row">
-      
-  <div class="  ">
-      <h1>Détails sur le le Business Plan </h1>
+  <tete :isAuthenticated="isAuthenticated"  @deconnect="handleLogout"/>
+
       <div v-if="post">
-        <div class="container">
-      <div class="row">
-        <div class="col" id="r">
-          <img :src="post.files" alt="Image de la page" id="p1" class="img-fluid"/>
-        </div>
-        <div class="col-md-6">
-          <h1>{{ post.titre }}</h1>
-          <p class="lead">{{ post.business }}</p>
-          <hr>
-          <div class="mb-3">
-            <strong>Objectifs:</strong> <span>{{ post.objectifs }}</span>
-          </div>
-          <div class="mb-3">
-            <strong>Description : </strong> {{ post.descriptionb }}
-          </div>
-          <div class="mb-3">
-  <strong>La  cible : </strong> {{ post.cible }}
-          </div>
-     <div class="mb-3">
-            <strong>Les partenaires : </strong> {{ post.partenaires }}
-          </div>
-          <div class="mb-3">
-            <strong>Concurrents immédiats  : </strong> {{ post.concurrents }}
-          </div>
-          <div class="mb-3">
-            <strong> Concurrents(stratégie et part du marché)   : </strong> {{ post.strategiec }}
-          </div>
-          <div class="mb-3">
-            <strong> Stratégie personelle   : </strong> {{ post.strategiep }}
-          </div>
-          <div class="mb-3">
-            <strong>Modèle économique   : </strong> {{ post.modeleco }}
-          </div>
-          <div class="mb-3">
-            <strong> Coût de lancement  : </strong> {{ post.cout }}
-          </div>
-          <div class="mb-3">
-            <strong> Chiffre d´affaire (1 ans+)   : </strong> {{ post.cout }}
-          </div>
-          <div class="mb-3">
-            <strong> Risques et solutions   : </strong> {{ post.risque }}
-          </div>
-          <div class="mb-3">
-            <strong> Risques et solutions   : </strong> {{ post.createdAt }}
-          </div>
-          <!-- Ajoutez ici d'autres informations sur la page -->
+        
+    <header class="bg-gray-200 text-white text-center  py-3">
+      <img :src="post.files" alt="Image du projet" id="x" class="">
+    </header>
+    <main class="container mt-5">
+      <div class="row ">
+        <div class="col-md-8 ">
+          <h2 class="text-primary">Description du projet</h2>
+      Nom :     <p class="lead">{{ post.descriptionb }}</p>
+      <strong>Les partenaires : </strong> {{ post.partenaire }}
+
         </div>
       </div>
-    </div>
-        <!-- Affichez ici les autres informations de l'utilisateur -->
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <button class="btn btn-warning btn-lg btn-block">Investir</button>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-success btn-lg btn-block">Faire un don</button>
+        </div>
+      </div>
+    </main>
+  
       </div>
       <div v-else>
         <p>Chargement en cours...</p>
       </div>
-      </div>
-    </div>
+      
   </template>
   
   <script>
-  import sidebar from '../../components/sidebar.vue';
+  import tete from '../../components/tete.vue';
   export default {
     components :{
-      sidebar
+      tete
     },
     data() {
       return {
@@ -75,7 +45,12 @@
     },
     mounted() {
       this.fetchUser();
-    },
+      const token = localStorage.getItem("Montoken")
+
+  if (token) {
+    this.isAuthenticated = true;
+    }
+  },
     methods: {
       async fetchUser() {
         try {
@@ -94,19 +69,33 @@
           console.error(error);
         }
       },
+      handleLogout(){
+        // Logique de déconnexion
+      // Mettez à jour isAuthenticated à false et effectuez d'autres tâches nécessaires (par exemple, supprimez le token, redirigez l'utilisateur, etc.)
+      this.isAuthenticated = false;
+      localStorage.removeItem('Montoken');
+      location.reload() // Supprimez le token du localStorage ou du cookie sécurisé
+
+},
     },
   };
   </script>
   
   <style>
-  .container {
-    margin-top: 50px;
-  }
-  #p1{
-    height:100% ;
-  }
-  #r{
-    height:90vh ;
-  }
-  </style>
+/* Styles spécifiques au composant */
+header {
+  padding: ;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: 50%;
+}
+#x{
+  height: 500px;
+width: 70%;
+box-shadow: 10;
+}
+</style>
+
   

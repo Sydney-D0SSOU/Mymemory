@@ -5,7 +5,7 @@
     
 </div>
 <div class=" col-10 ">
-    <h1>Détails sur le le Business Plan </h1>
+    <h1>Détails sur  le Business Plan </h1>
     <div v-if="post">
       <div class="container">
     <div class="row">

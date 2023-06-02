@@ -10,8 +10,8 @@
   </div>
   <ul class="list-group list-group-light list-group-small">
     <li class="list-group-item px-4">{{ post.modeleco }}</li>
-    <li class="list-group-item px-4">{{  }}</li>
-    <li class="list-group-item px-4"> Coût de lancement : {{ post.cout }} 
+ 
+<li class="list-group-item px-4"> Coût de lancement : {{ post.cout }} 
     </li>
   </ul>
   <div class="card-body">

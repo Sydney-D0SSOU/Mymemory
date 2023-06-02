@@ -8,7 +8,7 @@
             <h2 class="text-light"><p>DÉCOUVREZ DES PROJETS INNOVANTS ET </p>
               À FORT IMPACT SOCIAL </h2>
         </div>
-    </div>rw
+    </div>
     </section>
     </div>
   
@@ -17,7 +17,7 @@
     <cardpro/> 
 
    </div>
-   <pied/> 
+   <pied class="mt-5"/> 
 </template>
 
 <script>
@@ -60,37 +60,28 @@ return{
 </script>
 
 <style>
-.r {
-    background-color: rgb(194, 204, 204);
-    border:5px solid rgb(214, 182, 182);
-    height: 500px;
-    width:1500px ;
-    margin-top:90px ;
-    margin-bottom:10px ;
-    margin-left:30px ;
-    padding:15px ;
-    overflow: auto;
-    border-radius: 10px;
-
-}
-.Z{
-  margin-top:3900px ;
-
-}
-#h{
-  width: 1400px;
-  height: 500px;
-  margin-bottom:30px ;
-
-}
 .background-full-color {
-background-color: #abd5d8f0;
+background-color: #2f4954f0;
     width: 100%;
-    height:200px ;
+    height:300px ;
     min-height: 10.625em;
     padding: 3.75em 0;
 }
-#g1{
-  margin-bottom:50px ;
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+svg{
+    width:50px ;
+height: 30px ;
+}
+#r{
+    background-image:url('') ;
+height:auto ;
+background-color:  #d3d7d8f0;
+}
+#t{
+    background-color: #b6d0dbf0;
 }
 </style>
