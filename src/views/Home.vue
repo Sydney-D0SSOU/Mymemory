@@ -1,7 +1,5 @@
 <template>
-  <HelloWorld
-    msg="Thank you for using our product. We're glad you're with us."
-  />
+  <HelloWorld/>
 </template>
 
 <script setup lang="ts">
