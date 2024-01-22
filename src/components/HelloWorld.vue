@@ -177,7 +177,7 @@ export default {
     return {
       isAuthenticated: false,
       carrouselList:[
-        '/public/amazone.jpg',
+        'https://www.google.com/url?sa=i&url=https%3A%2F%2Ftwitter.com%2FFongbeWorld%2Fstatus%2F1049585917537726465&psig=AOvVaw0H_cJPAsZD9xuRZKuQM3PM&ust=1706016724625000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNDZhfyN8YMDFQAAAAAdAAAAABAD',
         '/public/jarre.png',
         '/public/stade.jpg',
 
