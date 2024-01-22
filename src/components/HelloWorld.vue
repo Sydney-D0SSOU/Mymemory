@@ -45,7 +45,7 @@
         <MDBCol> <card /> </MDBCol>
         <MDBCol> <card1 /> </MDBCol>
         <MDBCol> <card2 /> </MDBCol>
-        <MDBCol> <card3 /> </MDBCol>
+
       </MDBRow>
       <center>
         <btn class="mb-5 mt-5" />
