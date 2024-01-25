@@ -177,9 +177,10 @@ export default {
     return {
       isAuthenticated: false,
       carrouselList:[
-        'https://www.google.com/url?sa=i&url=https%3A%2F%2Ftwitter.com%2FFongbeWorld%2Fstatus%2F1049585917537726465&psig=AOvVaw0H_cJPAsZD9xuRZKuQM3PM&ust=1706016724625000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNDZhfyN8YMDFQAAAAAdAAAAABAD',
-        '/public/jarre.png',
-        '/public/stade.jpg',
+     '../../public/amazone.jpg',
+     '../../public/jarre.png',
+      '../../public/stade.jpg',
+      '../../public/1.png'
 
       ]
     };
@@ -230,9 +231,9 @@ export default {
   background-color: #6a848d;
   height: 300px;
   width: 100%;
-  background-image: url("../../public/2.png");
+  background-image: url("../../public/1.png");
   background-repeat: repeat;
-  background-size: 50px;
+  background-size: 300px;
   background-repeat: space;
 }
 .cta-text {
