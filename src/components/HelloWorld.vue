@@ -177,10 +177,10 @@ export default {
     return {
       isAuthenticated: false,
       carrouselList:[
-     '../../public/amazone.jpg',
-     '../../public/jarre.png',
-      '../../public/stade.jpg',
-      '../../public/1.png'
+     '/amazone.jpg',
+     '/jarre.png',
+      '/stade.jpg',
+      '/1.png'
 
       ]
     };

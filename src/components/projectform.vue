@@ -2,7 +2,6 @@
    
     <form @submit.prevent="submitForm">
      
-<center>
       <div class="form-group shadow-lg" id="custom" >
         
         <fieldset>
@@ -12,7 +11,7 @@
     <MDBRow class="">
     
 
-      <MDBCol sm="" class="mx-5 mt-40 ">
+      <MDBCol sm="" class=" ">
         <label class="fs-5 mt-5 mb-3  " >Donnez un titre à votre projet </label> 
         <MDBInput 
         label="Intitulé du projet"
@@ -25,8 +24,8 @@
 <MDBRow class="">
     
 
-      <MDBCol sm="" class="mx-5 mt-40 ">
-        <label class="fs-5 mt-5 mb-4 text " > Quels sont les objectifs de  votre projet ? (Soyez précis et conçis) </label>
+      <MDBCol sm="" class="">
+        <label class=" mt-5 mb-4 text " > Quels sont les objectifs de  votre projet ? (Soyez précis et conçis) </label>
 
         <MDBTextarea
         type="textarea"
@@ -44,7 +43,7 @@
  <MDBRow class="mx-5 ">
      
      
-  <MDBCol  class="fs-5  ">
+  <MDBCol  class="  ">
     <label class="fs-5 mt-5 mb-3 text-center " > 
    <p> Que proposez-vous  ? </p>
    </label>
@@ -73,7 +72,7 @@
   <MDBRow class="">
     
 
-      <MDBCol  class="mx-5 mt-40 ">
+      <MDBCol  class=" ">
         <label class="fs-5 mt-5 mb-3  " >Décrivez votre produit ou service  </label>
 
         <MDBTextarea 
@@ -88,7 +87,7 @@
     
 
       <MDBCol  class="mx-5 mt-40 ">
-        <label class="fs-5 mt-5 mb-3 text-center " for="images">Joindre une image ou affiche qui illustre au mieux votre projet   </label>
+        <label class="fs-5 mt-5 mb-3  " for="images">Joindre une image ou affiche qui illustre au mieux votre projet   </label>
 
         <MDBFile class="form-control" name="images"   ref="fileInput" @change="handleFileInputChange" />
     </MDBCol>
@@ -147,8 +146,8 @@
     
    
 
-      <MDBCol  class="mx-5 mt-40 ">
-        <label class="fs-5 mt-5 mb-3 text-center " > 
+      <MDBCol  class=" mx-5 mt-40 ">
+        <label class="fs-5 mt-5 mb-3 " > 
    <p> Estimez leur part du marché et leur stratégie pour y arriver ?   </p> 
  
   </label>
@@ -185,7 +184,7 @@
   <label class="fs-5 mt-5 mb-3  " > 
    <p> Quel sera votre modèle économique ? </p>
    </label>
-      <MDBCol  class="fs-5  ">
+      <MDBCol  class=" ">
         <MDBRadio
         
       label=" Freemium "
@@ -195,7 +194,7 @@
      
     />
       </MDBCol>
-      <MDBCol sm="" class=" fs-5">
+      <MDBCol sm="" class=" ">
     <MDBRadio
       label=" Publicitaire"
       name="Modèle publicitaire"
@@ -206,7 +205,7 @@
       wrapperClass="mb-3"
     />
       </MDBCol>
-      <MDBCol sm="" class="fs-5 ">
+      <MDBCol sm="" class=" ">
     <MDBRadio
       label=" Vente directe"
       name=" vente directe"
@@ -215,7 +214,7 @@
      
     />
       </MDBCol>
-    <MDBCol sm="" class=" fs-5">
+    <MDBCol sm="" class="">
     <MDBRadio
       label="Abonnement"
       name="Abonnement"
@@ -243,7 +242,7 @@
   <MDBRow class="">
 
       <MDBCol sm="" class="mx-5 mt-40 ">
-        <label class="fs-5 mt-5 mb-3 text-center " > À combien estimez-vous le côut de lancement de votre projet ? (En FCFA)   </label>
+        <label class="fs-5 mt-5 mb-3  " > À combien estimez-vous le côut de lancement de votre projet ? (En FCFA)   </label>
 
         <input type="text" v-model="cout" class="form-control "  />
     
@@ -276,7 +275,6 @@
 </fieldset>
 
   </div>
-</center>
   </form>
 
   <pied class="mt-5"/>
@@ -391,8 +389,8 @@ MDBContainer,
 #custom{
   background-color: #f1fefedb;
   width: 60%;
-  margin-left:80px ;
-  margin-top: 50px;
+  margin-left:0px ;
+  margin-top: 0px;
   
 }
 fieldset {
