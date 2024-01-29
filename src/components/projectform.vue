@@ -1,353 +1,179 @@
 <template>
-   
-    <form @submit.prevent="submitForm">
-     
-      <div class="form-group shadow-lg" id="custom" >
-        
-        <fieldset>
-          <center>
-  <legend>Mon business plan </legend>
-  </center>
-    <MDBRow class="">
-    
+  <form @submit.prevent="submitForm">
+    <div class="container mt-5">
+      <div class="shadow-lg p-4" id="custom">
+        <h2 class="fs-4 mb-4">Mon business plan</h2>
 
-      <MDBCol sm="" class=" ">
-        <label class="fs-5 mt-5 mb-3  " >Donnez un titre à votre projet </label> 
-        <MDBInput 
-        label="Intitulé du projet"
-        class="form-control" 
-        id="form11Name2" 
-        v-model="titre"/>
+        <!-- Titre du projet -->
+        <div class="mb-3">
+          <label class="form-label fs-5">Donnez un titre à votre projet</label>
+          <input v-model="titre" type="text" class="form-control" placeholder="Intitulé du projet" />
+        </div>
 
-    
-    </MDBCol>
-<MDBRow class="">
-    
+        <!-- Objectifs du projet -->
+        <div class="mb-3">
+          <label class="form-label fs-5">Quels sont les objectifs de votre projet ? (Soyez précis et concis)</label>
+          <textarea v-model="objectifs" class="form-control" rows="3" placeholder="Objectifs du projet"></textarea>
+        </div>
 
-      <MDBCol sm="" class="">
-        <label class=" mt-5 mb-4 text " > Quels sont les objectifs de  votre projet ? (Soyez précis et conçis) </label>
+        <!-- Type de business (produit ou service) -->
+        <div class="mb-3">
+          <label class="form-label fs-5">Que proposez-vous ?</label>
+          <div class="form-check">
+            <input v-model="business" class="form-check-input" type="radio" value="Produit" id="produit" />
+            <label class="form-check-label" for="produit">Un produit</label>
+          </div>
+          <div class="form-check">
+            <input v-model="business" class="form-check-input" type="radio" value="Service" id="service" />
+            <label class="form-check-label" for="service">Un service</label>
+          </div>
+        </div>
 
-        <MDBTextarea
-        type="textarea"
-        label="Objectifs du projet"
-        id="form11Name2"
-        v-model="objectifs"
-      />
-    
-    </MDBCol>
+        <!-- Description du produit ou service -->
+        <div class="mb-3">
+          <label class="form-label fs-5">Décrivez votre produit ou service</label>
+          <textarea v-model="descriptionb" class="form-control" rows="3" placeholder="Description"></textarea>
+        </div>
 
-  </MDBRow>
-  </MDBRow>
-    
+        <!-- Joindre une image ou affiche -->
+        <div class="mb-3">
+          <label class="form-label fs-5">Joindre une image ou affiche qui illustre au mieux votre projet</label>
+          <input type="file" ref="fileInput" @change="handleFileInputChange" class="form-control" />
+        </div>
 
- <MDBRow class="mx-5 ">
-     
-     
-  <MDBCol  class="  ">
-    <label class="fs-5 mt-5 mb-3 text-center " > 
-   <p> Que proposez-vous  ? </p>
-   </label>
-        <MDBRadio
-        
-      label="Un produit"
-      name="Produit"
-      v-model="business"
-      value="Produit"
-      
-    />
-    
-    <MDBRadio
-      label="Un service"
-      name="Service"
-      v-model="business"
-      value="Service"
-      
-     
-    />
-      </MDBCol>
-  
+        <!-- Décrivez votre marché cible -->
+        <div class="mb-3">
+          <label class="form-label fs-5">Décrivez votre marché cible</label>
+          <textarea v-model="cible" class="form-control" rows="3" placeholder="Cible visée"></textarea>
+        </div>
 
+        <!-- Enumérez les partenaires -->
+        <div class="mb-3">
+          <label class="form-label fs-5">Enumérez les partenaires de votre projet (si vous en avez)</label>
+          <textarea v-model="partenaire" class="form-control" rows="3" placeholder="Partenaires"></textarea>
+        </div>
 
-  </MDBRow>
-  <MDBRow class="">
-    
+        <!-- Concurrents -->
+        <div class="mb-3">
+          <label class="form-label fs-5">Quelles sont les entreprises que vous considérez comme étant vos concurrents immédiats ?</label>
+          <textarea v-model="concurrents" class="form-control" rows="3" placeholder="Analyse de la concurrence"></textarea>
+        </div>
 
-      <MDBCol  class=" ">
-        <label class="fs-5 mt-5 mb-3  " >Décrivez votre produit ou service  </label>
+        <!-- Dominance de la concurrence -->
+        <div class="mb-3">
+          <label class="form-label fs-5">Estimez leur part du marché et leur stratégie pour y arriver ?</label>
+          <textarea v-model="strategiec" class="form-control" rows="3" placeholder="Dominance de la concurrence"></textarea>
+        </div>
 
-        <MDBTextarea 
-        label="Description" 
-         v-model="descriptionb" 
-         class="form-control" />
-    
-    </MDBCol>
+        <!-- Stratégie pour prendre une part de ce marché -->
+        <div class="mb-3">
+          <label class="form-label fs-5">Quelle est la stratégie que vous pensez mettre en œuvre pour prendre une part de ce marché ?</label>
+          <textarea v-model="strategiep" class="form-control" rows="3" placeholder="Ma stratégie"></textarea>
+        </div>
 
-  </MDBRow>
-  <MDBRow class="">
-    
+        <!-- Modèle économique -->
+        <div class="mb-3">
+          <label class="form-label fs-5">Quel sera votre modèle économique ?</label>
+          <div class="form-check">
+            <input v-model="modeleco" class="form-check-input" type="radio" value="Freemium" id="freemium" />
+            <label class="form-check-label" for="freemium">Freemium</label>
+          </div>
+          <div class="form-check">
+            <input v-model="modeleco" class="form-check-input" type="radio" value="Modèle publicitaire" id="publicitaire" />
+            <label class="form-check-label" for="publicitaire">Publicitaire</label>
+          </div>
+          <div class="form-check">
+            <input v-model="modeleco" class="form-check-input" type="radio" value="Modèle de vente directe" id="venteDirecte" />
+            <label class="form-check-label" for="venteDirecte">Vente directe</label>
+          </div>
+          <div class="form-check">
+            <input v-model="modeleco" class="form-check-input" type="radio" value="Modèle d'Abonnement" id="abonnement" />
+            <label class="form-check-label" for="abonnement">Abonnement</label>
+          </div>
+          <div class="form-check">
+            <input v-model="modeleco" class="form-check-input" type="radio" value="Modèle de Commissionnement" id="commissionnement" />
+            <label class="form-check-label" for="commissionnement">Commissionnement</label>
+          </div>
+        </div>
 
-      <MDBCol  class="mx-5 mt-40 ">
-        <label class="fs-5 mt-5 mb-3  " for="images">Joindre une image ou affiche qui illustre au mieux votre projet   </label>
+        <!-- Coût de lancement -->
+        <div class="mb-3">
+          <label class="form-label fs-5">À combien estimez-vous le coût de lancement de votre projet ? (En FCFA)</label>
+          <input v-model="cout" type="text" class="form-control" />
+        </div>
 
-        <MDBFile class="form-control" name="images"   ref="fileInput" @change="handleFileInputChange" />
-    </MDBCol>
+        <!-- Chiffre d'affaires prévu -->
+        <div class="mb-3">
+          <label class="form-label fs-5">Quel chiffre d'affaires pensez-vous faire d'ici 1 an ?</label>
+          <input v-model="chiffrea" type="text" class="form-control" />
+        </div>
 
-  </MDBRow>
- 
-  <MDBRow class="">
-    
-      <MDBCol sm="" class="mx-5 mt-40 ">
-        <label class="fs-5 mt-5 mb-3  " > Décrivez votre marché cible  ? </label>
+        <!-- Risques et approches de solutions -->
+        <div class="mb-3">
+          <label class="form-label fs-5">Quels sont les risques liés à la mise en œuvre de votre projet et comment pensez-vous y remédier ?</label>
+          <textarea v-model="risque" class="form-control" rows="3" placeholder="Risques et approches de solutions"></textarea>
+        </div>
 
-        <MDBTextarea
-        type="textarea"
-        label="Cible visé "
-        id="form11Name2"
-        v-model="cible"
-      />
-    
-    </MDBCol>
-
-  </MDBRow>
- 
-  <MDBRow class="">
-  
-   <label class="fs-5 mt-5 mb-3 " > Enummérez les partenaires  de votre projet (si vous en avez) ?  </label>
-
-      <MDBCol sm="" class="mx-5 mt-40 ">
-        <MDBTextarea
-        type="textarea"
-        label="Partenaires"
-        id="form11Name2"
-        v-model="partenaire"
-      />
-    
-    </MDBCol>
-
-  </MDBRow> 
-  <MDBRow class="">
-    
-    
-      <MDBCol  class="mx-5 mt-40 ">
-        <label class="fs-5 mt-5 mb-3  " > 
-        <p> Quelles sont les entreprises que vous considérez directement  comme étant vos concurrents immédiats ? </p>
-</label>
-        <MDBTextarea
-        type="textarea"
-        label="Analyse de la  concurrences "
-        id="form11Name2"
-        v-model="concurrents"
-      />
-    
-    </MDBCol>
-
-  </MDBRow>
-  <MDBRow class="">
-    
-   
-
-      <MDBCol  class=" mx-5 mt-40 ">
-        <label class="fs-5 mt-5 mb-3 " > 
-   <p> Estimez leur part du marché et leur stratégie pour y arriver ?   </p> 
- 
-  </label>
-        <MDBTextarea
-        type="textarea"
-        label="Dominance de la concurrences "
-        id="form11Name2"
-        v-model="strategiec"
-      />
-    
-    </MDBCol>
-  </MDBRow>
-  <MDBRow class="">
-
-
-      <MDBCol  class="mx-5 mt-40 ">
-        <label class="fs-5 mt-5 mb-3  " > 
-   <p> Quelle est la stratégie que vous pensez mettre en pour prendre une  part de ce marché ? </p>
- 
-  </label>
-        <MDBTextarea
-        type="textarea"
-        label="Ma stratégie"
-        id="form11Name2"
-        v-model="strategiep"
-      />
-    
-    </MDBCol>
-  </MDBRow>
-  <MDBRow class="">
-
-   
- <MDBRow class="  ">
-  <label class="fs-5 mt-5 mb-3  " > 
-   <p> Quel sera votre modèle économique ? </p>
-   </label>
-      <MDBCol  class=" ">
-        <MDBRadio
-        
-      label=" Freemium "
-      name="Freemium"
-      v-model="modeleco"
-      value="Modèle Freemium"
-     
-    />
-      </MDBCol>
-      <MDBCol sm="" class=" ">
-    <MDBRadio
-      label=" Publicitaire"
-      name="Modèle publicitaire"
-      v-model="modeleco"
-      value="Modèle publicitaire"
-     
-      invalidFeedback="More example invalid feedback text"
-      wrapperClass="mb-3"
-    />
-      </MDBCol>
-      <MDBCol sm="" class=" ">
-    <MDBRadio
-      label=" Vente directe"
-      name=" vente directe"
-      v-model="modeleco"
-      value="Modèle de vente directe"
-     
-    />
-      </MDBCol>
-    <MDBCol sm="" class="">
-    <MDBRadio
-      label="Abonnement"
-      name="Abonnement"
-      v-model="modeleco"
-      value="Modèle de d´Abonnement"
-     
-      
-      wrapperClass="mb-3"
-    />
-    </MDBCol>
-    <MDBCol sm="" class=" fs-5">
-    <MDBRadio
-      label="Commissionnement "
-      name=" Commissionnement"
-      v-model="modeleco"
-      value="Modèle de Commissionnement"
-     
-      invalidFeedback="More example invalid feedback text"
-      wrapperClass="mb-3"
-    />
-    </MDBCol>
- </MDBRow>
-  </MDBRow>
- 
-  <MDBRow class="">
-
-      <MDBCol sm="" class="mx-5 mt-40 ">
-        <label class="fs-5 mt-5 mb-3  " > À combien estimez-vous le côut de lancement de votre projet ? (En FCFA)   </label>
-
-        <input type="text" v-model="cout" class="form-control "  />
-    
-    </MDBCol>
-  </MDBRow>
-  <MDBRow class="">
-
-      <MDBCol sm="" class="mx-5 mt-40 ">
-        <label class="fs-5 mt-5 mb-3  " > Quel chiffre d´affaire pensez-vous faire  d´ici 1an ?   </label>
-
-        <input type="text" v-model="chiffrea" class="form-control" />
-    
-    </MDBCol>
-  </MDBRow>
-  <MDBRow class="">
-   
-      <MDBCol sm="" class="mx-5 mt-40 ">
-        <label class="fs-5 mt-5 mb-2  " > Quels sont les risques liés à la mise en ouevre de votre projet
-     et comment pensez-vous  y remédier  ?  </label>
-
-        <MDBTextarea
-        type="textarea"
-        label="Risques et approches de  Solutions  "
-        id="form11Name2"
-        v-model="risque"
-      />
-    </MDBCol>
-  </MDBRow> 
-  <button type="submit" class="btn btn-success mt-5  ">SOUMETTRE</button>
-</fieldset>
-
-  </div>
+        <!-- Bouton Soumettre -->
+        <button type="submit" class="btn btn-success mt-4">SOUMETTRE</button>
+      </div>
+    </div>
   </form>
-
-  <pied class="mt-5"/>
-
-  
+  <pied class="mt-5" />
 </template>
-<script >
-
-  import {
-    MDBNavbar,  
-    MDBNavbarToggler,
-    MDBNavbarNav,
-    MDBNavbarItem,
-    MDBCol, 
-    MDBRow,
-MDBContainer,
-    MDBInput,
-    MDBCheckbox,
-    MDBTextarea,
-    MDBBtn,
-    MDBRadio,
-    MDBFile
-  } from "mdb-vue-ui-kit";
-  import { ref } from 'vue';
-
-import axios from 'axios';
-import pied from "../components/pied.vue"
+<script>
+import {
+  MDBRow,
+  MDBCol,
+  MDBInput,
+  MDBTextarea,
+  MDBRadio,
+  MDBFile,
+  MDBContainer,
+} from "mdb-vue-ui-kit";
+import { ref } from "vue";
+import axios from "axios";
+import pied from "../components/pied.vue";
 import tete from "../components/tete.vue";
 
-export default{
+export default {
   components: {
-    MDBNavbar,  
-    MDBNavbarToggler,
-    MDBNavbarNav,
-    MDBNavbarItem,
-    MDBCol, 
     MDBRow,
-MDBContainer,
+    MDBCol,
     MDBInput,
-    MDBCheckbox,
     MDBTextarea,
-    MDBBtn,
     MDBRadio,
     MDBFile,
+    MDBContainer,
     pied,
     tete,
-    },
-  data () {
-    return{
-      titre:'',
-      objectifs:'',
-      business:'',
-      descriptionb:'',
-      images: null ,
-      cible:'',
-      partenaire:'',
-      concurrents:'',
-      strategiec:'',
-      strategiep:'',
-      modeleco:'',
-      cout:'',
-      chiffrea:'',
-      risque:'',
-    }
+  },
+  data() {
+    return {
+      titre: "",
+      objectifs: "",
+      business: "",
+      descriptionb: "",
+      images: null,
+      cible: "",
+      partenaire: "",
+      concurrents: "",
+      strategiec: "",
+      strategiep: "",
+      modeleco: "",
+      cout: "",
+      chiffrea: "",
+      risque: "",
+    };
   },
   methods: {
-   submitForm(){
-    const token = localStorage.getItem("Montoken") ;
+    submitForm() {
+      const token = localStorage.getItem("Montoken");
 
-    const formData = new FormData();
+      const formData = new FormData();
       formData.append("titre", this.titre);
       formData.append("objectifs", this.objectifs);
-      formData.append("business", this.business); 
+      formData.append("business", this.business);
       formData.append("descriptionb", this.descriptionb);
       formData.append("images", this.images);
       formData.append("cible", this.cible);
@@ -360,45 +186,50 @@ MDBContainer,
       formData.append("chiffrea", this.chiffrea);
       formData.append("risque", this.risque);
 
-   axios.post('http://localhost:3004/pro/create',formData,
-   {
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-})
-   .then(response => {
+      axios
+        .post("http://localhost:3004/pro/create", formData, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
           console.log(response);
           alert("Formulaire envoyé avec succès !");
-          this.$router.push('/')
+          this.$router.push("/");
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           alert("Erreur lors de l'envoi du formulaire");
         });
     },
-   
-   handleFileInputChange(event) {
+
+    handleFileInputChange(event) {
       this.images = event.target.files[0];
-    }
- 
-  
+    },
   },
 };
 </script>
+
 <style>
-#custom{
-  background-color: #f1fefedb;
-  width: 60%;
-  margin-left:0px ;
-  margin-top: 0px;
-  
+#custom {
+  background-color: #6d706f;
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
-fieldset {
-  border: 4px double #104b6b;
-  padding: 10px;
-  margin-bottom: 10px;
+
+.fs-4 {
+  color: #104b6b;
 }
-legend {
-  font-weight: bold;
+
+.form-check-input {
+  margin-top: 5px;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
 }
 </style>

@@ -72,7 +72,7 @@ export default {
 
 <style>
 .background-full-color {
-  background-color: #2f4954f0;
+  background-color: #444546f0;
   width: 100%;
   height: 300px;
   min-height: 10.625em;
