@@ -186,8 +186,7 @@ export default {
       formData.append("chiffrea", this.chiffrea);
       formData.append("risque", this.risque);
 
-      axios
-        .post("http://localhost:3004/pro/create", formData, {
+      axios.post("https://memomry-back-serv.onrender.com", formData, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
