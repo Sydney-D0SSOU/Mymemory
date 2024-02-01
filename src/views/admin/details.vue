@@ -93,7 +93,7 @@ export default {
       try {
         const token = localStorage.getItem("admintoken") ;
         const postId = this.$route.params.id;
-        const response = await fetch(`http://localhost:3004/pro/one1/${postId}`,
+        const response = await fetch(`https://memomry-back-serv.onrender.com/pro/one1/${postId}`,
         
         {
    headers: {

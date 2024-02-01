@@ -56,7 +56,7 @@
         try {
           const token = localStorage.getItem("Mon token") ;
           const postId = this.$route.params.id;
-          const response = await fetch(`http://localhost:3004/pro/one/${postId}`,
+          const response = await fetch(`https://memomry-back-serv.onrender.com/pro/one/${postId}`,
           
           {
      headers: {

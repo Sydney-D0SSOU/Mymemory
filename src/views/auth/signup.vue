@@ -74,7 +74,7 @@ password:''
   },
   methods:{
     submitForm(){
-      axios.post('http://localhost:3004/auth/signup',{
+      axios.post('https://memomry-back-serv.onrender.com/auth/signup',{
         nom:this.nom,
          prenom:this.prenom,
         datenaiss: this.datenaiss,

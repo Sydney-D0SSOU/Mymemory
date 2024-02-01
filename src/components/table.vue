@@ -87,7 +87,7 @@ export default {
       try {
         const token = localStorage.getItem("admintoken") ;
 
-        const response = await axios.get('http://localhost:3004/pro/all1',
+        const response = await axios.get('https://memomry-back-serv.onrender.com/pro/all1',
         {
    headers: {
      Authorization: `Bearer ${token}`

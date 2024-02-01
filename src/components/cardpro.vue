@@ -76,7 +76,7 @@ mounted() {
       try {
         const token = localStorage.getItem("Montoken") ;
 
-        const response = await axios.get('http://localhost:3004/pro/all',
+        const response = await axios.get('https://memomry-back-serv.onrender.com/pro/all',
         {
    headers: {
      Authorization: `Bearer ${token}`},
