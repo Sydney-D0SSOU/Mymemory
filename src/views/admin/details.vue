@@ -111,7 +111,7 @@ export default {
         const postId = this.$route.params.id;
         const token = localStorage.getItem("admintoken") ;
 
-    const response = await axios.put(`http://localhost:3004/pro/modify/${postId}`,null,
+    const response = await axios.put(`https://memomry-back-serv.onrender.com/pro/modify/${postId}`,null,
     {
    headers: {
      Authorization: `Bearer ${token}`,
@@ -133,7 +133,7 @@ export default {
         const token = localStorage.getItem("admintoken") ;
 
         const postId = this.$route.params.id;
-    const response = await axios.put(`http://localhost:3004/pro/modify1/${postId}`,null,
+    const response = await axios.put(`https://memomry-back-serv.onrender.com/pro/modify1/${postId}`,null,
     {
    headers: {
      Authorization: `Bearer ${token}`,
