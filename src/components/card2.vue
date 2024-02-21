@@ -62,7 +62,7 @@
         async fetchUser() {
           try {
             const postId = this.$route.params.id;
-            const response = await fetch(`https://memomry-back-serv.onrender.com/pro/oneuser/${'646b848e9829ca3271625553'}` );
+            const response = await fetch(`https://memomry-back-serv.onrender.com/pro/oneuser/${'65d5c710e124df6752beddee'}` );
             const data = await response.json();
             this.post = data;
           } catch (error) {

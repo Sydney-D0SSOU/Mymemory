@@ -42,9 +42,9 @@
 
     <MDBContainer>
       <MDBRow>
-        <MDBCol> <card /> </MDBCol>
-        <MDBCol> <card1 /> </MDBCol>
-        <MDBCol> <card2 /> </MDBCol>
+        <MDBCol> <card/> </MDBCol>
+        <MDBCol> <card1/> </MDBCol>
+        <MDBCol> <card2/> </MDBCol>
 
       </MDBRow>
       <center>
@@ -142,10 +142,9 @@ import {
   MDBRow,
   MDBContainer,
 } from "mdb-vue-ui-kit";
-import card2 from "../components/card2.vue";
-import card3 from "./card3.vue";
 import card from "../components/card.vue";
 import card1 from "../components/card1.vue";
+import card2 from "../components/card2.vue";
 import btn from "../components/btn.vue";
 import pied from "../components/pied.vue";
 import login from "../views/auth/login.vue";
@@ -163,7 +162,6 @@ export default {
     card,
     card1,
     card2,
-    card3,
     btn,
     pied,
     login,
